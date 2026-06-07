@@ -3,69 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Bio Honig Baumann – regionale Bio-Imkerei aus Hartkirchen in Oberösterreich. Blütenhonig, Waldhonig und weitere Bienenprodukte direkt vom Imker.">
-    <meta name="keywords" content="Bio Honig, Imkerei Hartkirchen, Blütenhonig, Waldhonig, Oberösterreich, regionaler Honig">
-    <meta name="author" content="BIO Honig Baumann">
-    <link rel="canonical" href="https://baumannhonig.github.io/BaumannBIOHonig/">
-    <meta property="og:title" content="BIO Honig Baumann">
-    <meta property="og:url" content="https://baumannhonig.github.io/BaumannBIOHonig/">
-    <meta property="og:image" content="https://primary.jwwb.nl/pexels/52/5247993.jpeg?enable-io=true&enable=upscale&fit=bounds&width=1200">
-    <meta property="og:description" content="Bio Honig Baumann – regionale Bio-Imkerei aus Hartkirchen in Oberösterreich.">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>Bio Honig Baumann – Imkerei aus Hartkirchen | Bio Blütenhonig & Waldhonig</title>
+    <title>Unser Honigsortiment | BIO Honig Baumann</title>
+    <meta name="description" content="Entdecken Sie unser BIO Honigsortiment – Blütenhonig, Waldhonig und mehr aus reiner Natur.">
+    <!-- Schriftarten (wie im Original) -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;400italic;700italic&family=Merriweather:wght@400;700;400italic;700italic&display=swap" rel="stylesheet">
     <style>
-        /* ------------------------------------------------------------
-           FARBSCHEMA – Identisch mit unser-honigsortiment.html
-        ------------------------------------------------------------ */
-        :root {
-            --primary: #2c5e2e;        /* Hauptgrün für Buttons und Überschriften */
-            --primary-dark: #1f4521;   /* Dunkler für Hover-Effekte */
-            --primary-light: #eef5ea;  /* Heller Hintergrund für Akzent-Streifen */
-            --text-dark: #2c3e2f;      /* Dunkelgrün für Fließtext */
-            --text-body: #444444;      /* Dunkelgrau für Fließtext */
-            --background-alt: #f9fafb; /* Hellgrau für abwechselnde Streifen */
-            --header-bg: rgba(255,255,255,0.96);
-            --footer-bg: #2c5e2e;      /* Dunkles Grün für Footer */
-            --footer-text: #ffffff;
-        }
-
+        /* Grundlegendes Reset & Basis-Styling */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: 'Lato', 'Segoe UI', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-body);
-            background: #ffffff;
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            background-color: #fff;
+            line-height: 1.5;
         }
-
-        a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.2s ease;
+        h1, h2, h3, h4, .site-title, .nav-links a {
+            font-family: 'Merriweather', serif;
         }
-        a:hover {
-            color: var(--primary-dark);
-            text-decoration: underline;
-        }
-
-        /* Header */
-        .header {
-            background: var(--header-bg);
-            backdrop-filter: blur(4px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 20px;
+        }
+        /* Header */
+        .site-header {
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            background: rgba(255,255,255,0.95);
         }
         .header-inner {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -75,385 +48,262 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            padding: 15px 0;
         }
-        .logo {
+        .logo-img {
             width: 60px;
             height: 60px;
             object-fit: contain;
         }
         .site-title {
-            font-family: 'Merriweather', serif;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary);
+            color: #2c5e2e;
+            text-decoration: none;
         }
-        /* Navigation */
-        .nav ul {
+        /* Navigation (Desktop) */
+        .nav-links {
             display: flex;
-            list-style: none;
             gap: 25px;
-            flex-wrap: wrap;
+            list-style: none;
         }
-        .nav a {
-            display: inline-block;
-            padding: 10px 0;
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
             font-weight: 600;
-            color: var(--text-dark);
-            transition: color 0.2s, border-bottom 0.2s;
-            border-bottom: 2px solid transparent;
+            transition: color 0.2s;
         }
-        .nav a:hover,
-        .nav a.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
+        .nav-links a:hover,
+        .nav-links .active {
+            color: #2c5e2e;
+            border-bottom: 2px solid #2c5e2e;
+            padding-bottom: 4px;
         }
         /* Mobile Menu Toggle */
         .menu-toggle {
             display: none;
+            font-size: 28px;
             background: none;
-            border: 1px solid var(--primary);
-            font-size: 1.5rem;
-            padding: 5px 12px;
-            cursor: pointer;
-            color: var(--primary);
-            border-radius: 6px;
-        }
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            .nav {
-                width: 100%;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-            }
-            .nav.open {
-                max-height: 300px;
-            }
-            .nav ul {
-                flex-direction: column;
-                gap: 0;
-                padding: 10px 0;
-            }
-            .nav li {
-                border-top: 1px solid #eee;
-            }
-            .header-inner {
-                flex-wrap: wrap;
-            }
-        }
-
-        /* Hero-Bereich mit schöner Hintergrundgrafik */
-        .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://primary.jwwb.nl/pexels/53/53444.jpeg?enable-io=true&enable=upscale');
-            background-size: cover;
-            background-position: center 40%;
-            text-align: center;
-            padding: 100px 20px;
-            color: white;
-        }
-        .hero h1 {
-            font-family: 'Merriweather', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2rem; }
-        }
-
-        /* Allgemeine Container und Abschnitte */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .section {
-            padding: 60px 0;
-        }
-        .section-alt {
-            background: var(--background-alt);
-        }
-        .section-light {
-            background: var(--primary-light);
-        }
-        .flex-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            align-items: center;
-        }
-        .flex-col {
-            flex: 1;
-            min-width: 280px;
-        }
-        .image-full {
-            width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-        .image-full:hover {
-            transform: scale(1.01);
-        }
-
-        /* Typografie */
-        h2 {
-            font-family: 'Merriweather', serif;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        h3 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.5rem;
-            margin: 20px 0 10px;
-            color: var(--primary);
-        }
-        .product-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .product-card {
-            flex: 1;
-            min-width: 240px;
-            background: white;
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-        .testimonial-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .testimonial {
-            flex: 1;
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            font-style: italic;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .contact-info {
-            background: var(--primary-light);
-            padding: 30px;
-            border-radius: 20px;
-        }
-        .map-placeholder {
-            margin-top: 20px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        iframe {
-            width: 100%;
-            height: 350px;
-            border: 0;
-        }
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            background: var(--footer-bg);
-            color: var(--footer-text);
-            font-size: 0.9rem;
-            margin-top: 40px;
-        }
-        footer a {
-            color: var(--footer-text);
-            text-decoration: underline;
-        }
-        footer a:hover {
-            color: var(--primary-light);
-        }
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-weight: bold;
-            transition: background 0.2s, transform 0.1s;
             border: none;
             cursor: pointer;
-            text-decoration: none;
+            color: #2c5e2e;
         }
-        .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-            text-decoration: none;
+        /* Sections (ähnlich wie original Strips) */
+        .strip {
+            padding: 60px 0;
         }
-        hr {
-            margin: 40px 0;
-            border: 0;
-            height: 1px;
-            background: rgba(0,0,0,0.1);
+        .strip-light {
+            background-color: #f9f9f9;
+        }
+        .strip-green {
+            background-color: #eef5ea;
+        }
+        .strip-white {
+            background-color: #fff;
         }
         .text-center {
             text-align: center;
         }
+        .heading-large {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c5e2e;
+        }
+        .heading-medium {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #2c5e2e;
+        }
+        .heading-small {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c5e2e;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #2c5e2e;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #1f4521;
+        }
+        .two-columns {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .col {
+            flex: 1;
+            min-width: 250px;
+        }
+        .product-image {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+        }
+        .landscape-image {
+            aspect-ratio: 4 / 3;
+        }
         .spacer {
             height: 20px;
+        }
+        /* Footer */
+        .site-footer {
+            background-color: #2c5e2e;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #fff;
+                padding: 20px 0;
+                text-align: center;
+                gap: 15px;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .header-inner {
+                flex-wrap: wrap;
+            }
+            .heading-large {
+                font-size: 2rem;
+            }
+            .heading-medium {
+                font-size: 1.6rem;
+            }
+            .two-columns {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
 
-<header class="header">
-    <div class="header-inner">
+<header class="site-header">
+    <div class="container header-inner">
         <div class="logo-area">
-            <img class="logo" src="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&height=70" alt="BIO Honig Baumann Logo">
-            <span class="site-title">BIO Honig Baumann</span>
+            <img class="logo-img" src="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&enable=upscale&height=70" alt="BIO Honig Baumann Logo">
+            <a href="index.html" class="site-title">BIO Honig Baumann</a>
         </div>
         <button class="menu-toggle" aria-label="Menü">☰</button>
-        <nav class="nav">
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="ueber-uns.html">Über uns</a></li>
-                <li><a href="unser-honigsortiment.html">Unser Honigsortiment</a></li>
-                <li><a href="produkte.html">Produkte</a></li>
-                <li><a href="impressum.html">Impressum</a></li>
-                <li><a href="datenschutz.html">Datenschutz</a></li>
-            </ul>
-        </nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="unser-honigsortiment.html" class="active">Unser Honigsortiment</a></li>
+            <li><a href="produkte.html">Produkte</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
     </div>
 </header>
 
-<div class="hero">
-    <h1>Willkommen bei Baumann BIO Honig</h1>
-    <a href="unser-honigsortiment.html" class="btn">Honig entdecken</a>
-</div>
+<main>
+    <!-- Hero Bereich -->
+    <section class="strip strip-green">
+        <div class="container text-center">
+            <h1 class="heading-large">Unser Honigsortiment</h1>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Entdecken Sie die Vielfalt unseres BIO Honig Baumann Sortiments. Jeder Löffel erzählt die Geschichte unserer Bienen und der unberührten Natur Österreichs. Tauchen Sie ein in die Welt des reinen Geschmacks und der unverfälschten Qualität.</p>
+            <div class="spacer"></div>
+            <a href="produkte.html" class="btn">Unsere Produkte entdecken</a>
+        </div>
+    </section>
 
-<!-- Philosophie + Bild -->
-<div class="section">
-    <div class="container">
-        <div class="flex-row">
-            <div class="flex-col">
-                <h2>Unsere Philosophie</h2>
-                <p>Bei BIO Honig Baumann steht die Natur im Mittelpunkt. Wir bewirtschaften unsere Bienenvölker nach strengen biologischen Richtlinien in der malerischen Region des oberen Donautals in Oberösterreich. Unser Engagement gilt dem Schutz der Bienen und der Gewinnung von Honig höchster Güte, der die Reinheit unserer Umwelt widerspiegelt.</p>
+    <!-- Bestseller Bereich (mit 2 Spalten) -->
+    <section class="strip strip-white">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="heading-medium">Unsere Bestseller</h2>
+                <p>Wir sind besonders stolz auf unsere handverlesenen Bio-Honigsorten, die von unseren fleißigen Bienen in den schönsten Regionen Österreichs gesammelt werden. Diese Spezialitäten sind das Herzstück unserer BIO Imkerei und zeugen von höchster Qualität und Reinheit.</p>
             </div>
-            <div class="flex-col">
-                <img class="image-full" src="https://primary.jwwb.nl/pexels/52/5247993.jpeg?enable-io=true&enable=upscale&crop=1.3333:1&width=800" alt="Imkerei vor blühender Wiese">
+            <div class="two-columns">
+                <!-- Blütenhonig -->
+                <div class="col">
+                    <img class="product-image" src="https://primary.jwwb.nl/pexels/81/8140790.jpeg?enable-io=true&enable=upscale&crop=1%3A1&width=800" alt="BIO Blütenhonig">
+                    <h3 class="heading-small">Echter BIO-Blütenhonig</h3>
+                    <p>Unser BIO-Blütenhonig ist ein wahres Geschenk der Natur. Von Bienen aus dem Nektar vielfältiger Blüten gewonnen, ist er reich an Nährstoffen und Enzymen. Dieser Honig ist bekannt für seinen hohen Anteil an Antioxidantien und seine gesundheitsfördernden Eigenschaften. Ein Muss für jeden Honigliebhaber.</p>
+                </div>
+                <!-- Waldhonig -->
+                <div class="col">
+                    <img class="product-image" src="https://primary.jwwb.nl/pexels/85/8500502.jpeg?enable-io=true&enable=upscale&crop=1%3A1&width=800" alt="Cremiger BIO Waldhonig">
+                    <h3 class="heading-small">Cremiger BIO-Waldhonig</h3>
+                    <p>Ein Beispiel für unseren cremigen Waldhonig. Er besticht durch seine dunkle Farbe und seinen kräftigen, würzigen Geschmack. Ideal zum Verfeinern von Gebäck oder als Brotaufstrich. Seine feine, cremige Konsistenz macht ihn besonders beliebt.</p>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 30px;">
+                <a href="#" class="btn">Jetzt bestellen</a>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<div class="section-alt">
-    <div class="container">
-        <div class="flex-row">
-            <div class="flex-col">
-                <img class="image-full" src="https://primary.jwwb.nl/pexels/53/5336243.jpeg?enable-io=true&enable=upscale&crop=1.3333:1&width=800" alt="Bienen auf Wabe">
-            </div>
-            <div class="flex-col">
-                <h2>Unsere biologische Imkerei</h2>
-                <p>Wir glauben an nachhaltige Imkerei und die Bewahrung der natürlichen Lebensräume für unsere Bienen. Durch den Verzicht auf Chemikalien und den Einsatz naturbelassener Methoden stellen wir sicher, dass unser Honig nicht nur köstlich, sondern auch rein und gesund ist. Erfahren Sie mehr über unsere Arbeitsweise.</p>
-                <div class="spacer"></div>
-                <a href="ueber-uns.html" class="btn">Mehr erfahren</a>
-            </div>
+    <!-- Einzigartigkeit -->
+    <section class="strip strip-light">
+        <div class="container text-center">
+            <h2 class="heading-medium">Die Einzigartigkeit unseres BIO-Honigs</h2>
+            <p style="max-width: 800px; margin: 0 auto;">Was unseren Honig so besonders macht, ist unsere kompromisslose Verpflichtung zu ökologischen Richtlinien. Von der Bienenhaltung bis zur Verarbeitung legen wir Wert auf Naturbelassenheit und Reinheit, die Sie schmecken können.</p>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- Sortiment -->
-<div class="section">
-    <div class="container">
-        <h2 class="text-center">Unser vielfältiges Bio-Honigsortiment</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <h3>Bio Blütenhonig</h3>
-                <p>Ein milder, heller Bio-Honig mit zartem Blütenaroma, gesammelt aus der Umgebung des Eferdinger Hügellands. Ideal für den Start in den Tag.</p>
-                <p><strong>€ 9,00</strong> (500g)</p>
+    <!-- Reinheit & Nachhaltigkeit (2 Abschnitte mit Bild/Text) -->
+    <section class="strip strip-white">
+        <div class="container">
+            <div class="two-columns">
+                <div class="col">
+                    <img class="product-image landscape-image" src="https://primary.jwwb.nl/pexels/74/747909.jpeg?enable-io=true&enable=upscale&crop=1.3333%3A1&width=800" alt="Bienenstock">
+                </div>
+                <div class="col">
+                    <h3 class="heading-small">Reinheit in jedem Tropfen</h3>
+                    <p>BIO-Honig Baumann unterscheidet sich von herkömmlichem Honig durch die strenge Einhaltung ökologischer Richtlinien bei der Haltung der Bienen und der Verarbeitung des Honigs. Dies garantiert ein Produkt, das naturbelassener, pestizidärmer und meist geschmacksintensiver ist. Bei uns steht die Natur an erster Stelle.</p>
+                </div>
             </div>
-            <div class="product-card">
-                <h3>Bio Waldhonig</h3>
-                <p>Ein kräftiger Bio-Honig mit herb-würzigen Noten, gesammelt in den Wäldern rund um unsere Imkerei. Perfekt zu Käse oder im Tee.</p>
-                <p><strong>€ 10,00</strong> (500g)</p>
-            </div>
-            <div class="product-card">
-                <h3>Bio Honig mit Blütenpollen</h3>
-                <p>Unser cremiger Honig angereichert mit Blütenpollen – eine natürliche Quelle für Vitamine und Mineralien.</p>
-                <p><strong>€ 11,50</strong> (250g)</p>
-            </div>
-            <div class="product-card">
-                <h3>Bio Propolis-Tinktur</h3>
-                <p>Hochwertige Tinktur aus dem wertvollen Kittharz der Bienen, zur äußeren und inneren Anwendung.</p>
-                <p><strong>€ 11,00</strong> (30ml)</p>
-            </div>
-            <div class="product-card">
-                <h3>Bio Blütenpollen pur</h3>
-                <p>Reiner BIO Blütenpollen, eine wertvolle Ergänzung für Müsli, Joghurt oder Smoothies.</p>
-                <p><strong>€ 10,00</strong> (100g)</p>
-            </div>
-        </div>
-        <div class="text-center" style="margin-top: 40px;">
-            <a href="unser-honigsortiment.html" class="btn">Zum gesamten Sortiment</a>
-        </div>
-    </div>
-</div>
-
-<!-- Kundenstimmen -->
-<div class="section-alt">
-    <div class="container">
-        <h2 class="text-center">Das sagen unsere Kunden</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial">„Der Honig von BIO Honig Baumann ist einfach unvergleichlich! Man schmeckt die Liebe zur Natur in jedem Tropfen. Ein Muss für jeden Honigliebhaber!“<br><strong>– Maria S. aus Linz</strong></div>
-            <div class="testimonial">„Ich schätze die biologische Qualität und die Nachhaltigkeit, die BIO Honig Baumann lebt. Der Honig ist nicht nur köstlich, sondern auch ein Beitrag zum Umweltschutz.“<br><strong>– Markus F. aus Wels</strong></div>
-            <div class="testimonial">„Endlich ein Honig, der wirklich nach Honig schmeckt! Die Sortenvielfalt ist beeindruckend und jede einzelne ein Genuss. Ich bin Stammkunde geworden.“<br><strong>– Anna K. aus Wels</strong></div>
-        </div>
-    </div>
-</div>
-
-<!-- Kontakt & Karte -->
-<div class="section">
-    <div class="container">
-        <div class="flex-row">
-            <div class="flex-col contact-info">
-                <h2>Kontaktieren Sie uns</h2>
-                <p><strong>Unsere Öffnungszeiten</strong><br>
-                Montag bis Samstag: 08:00 – 18:00 Uhr<br>
-                Sonntag und Feiertage: auf Anruf</p>
-                <p><strong>Tel.:</strong> +43 660 7579524</p>
-                <p><strong>E-Mail:</strong> <a href="mailto:baumann.bernhard@gmx.net">baumann.bernhard@gmx.net</a></p>
-                <p><strong>Adresse:</strong> Staudachstraße 1, 4081 Hartkirchen, Österreich</p>
-                <p><a class="btn" href="https://maps.google.com/?q=Staudachstraße+1+4081+Hartkirchen" target="_blank" rel="noopener">Route anzeigen (Google Maps)</a></p>
-            </div>
-            <div class="flex-col">
-                <div class="map-placeholder">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2665.264693607701!2d13.9984012!3d48.3600839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47745d2e7e7e7e7%3A0x123456789abcdef!2sStaudachstra%C3%9Fe%201%2C%204081%20Hartkirchen!5e0!3m2!1sde!2sat!4v1690000000000!5m2!1sde!2sat" allowfullscreen="" loading="lazy"></iframe>
+            <div class="spacer"></div>
+            <div class="two-columns">
+                <div class="col">
+                    <h3 class="heading-small">Nachhaltigkeit und Tradition</h3>
+                    <p>Unsere Bienenkästen bestehen ausschließlich aus natürlichen Rohstoffen wie Holz, Stroh oder Lehm – Plastik oder Styropor sind tabu. Diese traditionelle Bauweise unterstützt nicht nur die Gesundheit unserer Bienen, sondern trägt auch zum unverwechselbaren Geschmack unseres Honigs bei. Erleben Sie die Verbindung von Tradition und Nachhaltigkeit.</p>
+                    <div class="spacer"></div>
+                    <a href="ueber-uns.html" class="btn">Mehr über uns erfahren</a>
+                </div>
+                <div class="col">
+                    <img class="product-image landscape-image" src="https://primary.jwwb.nl/pexels/96/9608590.jpeg?enable-io=true&enable=upscale&crop=1.3333%3A1&width=800" alt="Bienenkästen aus Holz">
                 </div>
             </div>
         </div>
-        <hr>
-        <p class="text-center"><strong>Besuchen Sie auch unsere Partnerseite:</strong> <a href="https://baumannhonigseiten.unaux.com" target="_blank" rel="noopener">Baumann's Honig Seiten</a></p>
-    </div>
-</div>
+    </section>
+</main>
 
-<footer>
-    <p>&copy; 2026 BIO Honig Baumann | <a href="datenschutz.html">Datenschutzerklärung</a> | <a href="impressum.html">Impressum</a></p>
-    <p><small>Mit Unterstützung von Günther Danninger</small></p>
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 BIO Honig Baumann</p>
+        <p>Mit Unterstützung von Günther Danninger</p>
+    </div>
 </footer>
 
 <script>
-    // Mobil-Menü (Hamburger)
+    // Einfaches mobiles Menü (Hamburger)
     const toggleBtn = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav');
+    const navMenu = document.querySelector('.nav-links');
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
+            navMenu.classList.toggle('show');
         });
     }
 </script>
