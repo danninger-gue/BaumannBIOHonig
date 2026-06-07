@@ -1,571 +1,394 @@
 <!DOCTYPE html>
 <html lang="de-AT">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- Angepasst für GitHub Pages – canonical und base entfernt / relativ -->
-        <link rel="canonical" href="https://baumannbiohonig.github.io/produkte">
-        <link rel="sitemap" type="application/xml" href="sitemap.xml">
-        <meta property="og:title" content="Produkte | BIO Honig Baumann">
-        <meta property="og:url" content="https://baumannbiohonig.github.io/produkte">
-        <meta name="description" content="Bio Honig Baumann Hartkirchen – unsere hochwertigen Bio-Produkte">
-        <title>Produkte | BIO Honig Baumann</title>
-        <meta property="og:image" content="https://primary.jwwb.nl/pexels/56/5634207.jpeg?enable-io=true&amp;enable=upscale&amp;fit=bounds&amp;width=1200">
-        <meta property="og:image" content="https://primary.jwwb.nl/pexels/88/8851477.jpeg?enable-io=true&amp;enable=upscale&amp;fit=bounds&amp;width=1200">
-        <meta property="og:image" content="https://primary.jwwb.nl/pexels/66/6694135.jpeg?enable-io=true&amp;enable=upscale&amp;fit=bounds&amp;width=1200">
-        <meta property="og:image" content="https://primary.jwwb.nl/pexels/20/20829042.jpeg?enable-io=true&amp;enable=upscale&amp;fit=bounds&amp;width=1200">
-        <meta property="og:image" content="https://primary.jwwb.nl/pexels/88/8851478.jpeg?enable-io=true&amp;enable=upscale&amp;fit=bounds&amp;width=1200">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta property="twitter:image" content="https://primary.jwwb.nl/pexels/56/5634207.jpeg?enable-io=true&amp;enable=upscale&amp;fit=bounds&amp;width=1200">
-        
-        <!-- Alle externen Ressourcen (JouwWeb, Google Fonts) bleiben funktionsfähig -->
-        <link rel="stylesheet" type="text/css" href="https://gfonts.jwwb.nl/css?display=fallback&amp;family=Lato%3A400%2C700%2C400italic%2C700italic%7CMerriweather%3A400%2C700%2C400italic%2C700italic" nonce="ca5a34a04ed227f6ea04c4b008d6e3a8" data-turbo-track="dynamic">
-        <script src="https://assets.jwwb.nl/assets/website-rendering-i18n/de-AT.js?bust=e0a4c0319b1938b7e2e3" nonce="ca5a34a04ed227f6ea04c4b008d6e3a8" data-turbo-track="reload" defer></script>
-        <script src="https://assets.jwwb.nl/assets/website-rendering/runtime.a3d86fbc8d905e5a8b1b.js?bust=c3260aef25c3cd23ff92" nonce="ca5a34a04ed227f6ea04c4b008d6e3a8" data-turbo-track="reload" defer></script>
-        <script src="https://assets.jwwb.nl/assets/website-rendering/964.a958855da07340f5fab3.js?bust=7f40a67c5d0bee8ef59b" nonce="ca5a34a04ed227f6ea04c4b008d6e3a8" data-turbo-track="reload" defer></script>
-        <script src="https://assets.jwwb.nl/assets/website-rendering/main.6a48e95c5d3fc3290425.js?bust=8aaaa4a4e857cbdcba7e" nonce="ca5a34a04ed227f6ea04c4b008d6e3a8" data-turbo-track="reload" defer></script>
-        <link rel="preload" href="https://assets.jwwb.nl/assets/website-rendering/main.171189020421ded29c7e.css?bust=6932de9c677fa503b2a7" as="style">
-        <link rel="preload" href="https://assets.jwwb.nl/assets/website-rendering/fonts/icons-website-rendering/font/website-rendering.woff2?bust=eeda4129169be2e46f13" as="font" crossorigin>
-        <link rel="preconnect" href="https://gfonts.jwwb.nl">
-        <link rel="preconnect" href="https://assets.jwwb.nl">
-        <link rel="stylesheet" type="text/css" href="https://assets.jwwb.nl/assets/website-rendering/main.171189020421ded29c7e.css?bust=6932de9c677fa503b2a7" nonce="ca5a34a04ed227f6ea04c4b008d6e3a8" data-turbo-track="dynamic">
-        <link rel="stylesheet" type="text/css" href="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/style.css?bust=1779602059" nonce="ca5a34a04ed227f6ea04c4b008d6e3a8" data-turbo-track="dynamic" id="jw-website-stylesheet">
-        
-        <style>
-            /* ==================== GRÜNES FARBSCHEMA (angepasst an die anderen Seiten) ==================== */
-            /* Cookie Popup – grüne Akzente */
-            #cookie-popup {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.95);
-                z-index: 999999;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-family: 'Segoe UI', Arial, sans-serif;
-            }
-            .cookie-container {
-                background: white;
-                max-width: 500px;
-                width: 90%;
-                border-radius: 16px;
-                overflow: hidden;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-                animation: slideIn 0.3s ease-out;
-            }
-            @keyframes slideIn {
-                from { transform: translateY(-30px); opacity: 0; }
-                to { transform: translateY(0); opacity: 1; }
-            }
-            .cookie-header {
-                background: #2e7d32;  /* kräftiges Grün statt orange */
-                padding: 25px;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Unsere Bio-Honigprodukte aus Oberösterreich: Blütenhonig, Waldhonig, Propolis-Tinktur, Blütenpollen und mehr – direkt vom Imker.">
+    <meta name="keywords" content="Bio Honig, Imkerei Hartkirchen, Blütenhonig, Waldhonig, Propolis, Blütenpollen, Oberösterreich">
+    <title>Produkte – BIO Honig Baumann</title>
+    <link rel="canonical" href="https://baumannhonig.github.io/BaumannBIOHonig/produkte.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍯</text></svg>">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;400italic;700italic&family=Merriweather:wght@400;700;400italic;700italic&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #fef9e6;
+            color: #2c2b28;
+            line-height: 1.5;
+        }
+        /* Container für gesamten Inhalt (ähnlich wie jw-body) */
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+        /* Header */
+        .site-header {
+            background: #fff9ef;
+            border-bottom: 2px solid #f5a623;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .logo-img {
+            width: 70px;
+            height: auto;
+        }
+        .site-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.6rem;
+            color: #b45f1b;
+            letter-spacing: 1px;
+        }
+        /* Navigation */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+        .main-nav a {
+            text-decoration: none;
+            font-weight: 700;
+            color: #5a3e1b;
+            transition: color 0.2s;
+        }
+        .main-nav a:hover, .main-nav .active {
+            color: #f5a623;
+            border-bottom: 2px solid #f5a623;
+            padding-bottom: 4px;
+        }
+        /* Hero / Banner */
+        .hero {
+            background-image: url('https://primary.jwwb.nl/pexels/53/53444.jpeg?enable-io=true&enable=upscale&crop=1920%2C384%2Cx0%2Cy449%2Csafe');
+            background-size: cover;
+            background-position: center 30%;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-family: 'Merriweather', serif;
+            background: rgba(0,0,0,0.4);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+        }
+        /* Hauptinhalt */
+        .content {
+            padding: 2rem;
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            color: #b45f1b;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #f5a623;
+            display: inline-block;
+            padding-bottom: 0.3rem;
+            width: auto;
+        }
+        .section-subtitle {
+            font-size: 1.5rem;
+            margin: 1rem 0 0.5rem;
+            color: #7c501f;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .product-card {
+            background: #fffaf0;
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+        }
+        .product-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #b45f1b;
+        }
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c6e2c;
+            margin: 0.5rem 0;
+        }
+        .product-desc {
+            color: #444;
+            margin-top: 0.5rem;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .testimonial {
+            background: #fff3e0;
+            padding: 1.2rem;
+            border-radius: 20px;
+            font-style: italic;
+            text-align: center;
+        }
+        .testimonial p:first-child {
+            font-size: 2rem;
+            color: #f5a623;
+        }
+        .kontakt-info {
+            background: #f5e6d3;
+            padding: 1.5rem;
+            border-radius: 24px;
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .kontakt-block {
+            flex: 1;
+        }
+        .kontakt-block h3 {
+            color: #b45f1b;
+            margin-bottom: 0.8rem;
+        }
+        .map {
+            min-height: 250px;
+            background: #ddd;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        footer {
+            background: #2c2b28;
+            color: #f0e6d2;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #f5a623;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Cookie-Banner (vereinfacht, nur Hinweis – keine externen Tracker) */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1e1e1e;
+            color: #eee;
+            padding: 1rem;
+            text-align: center;
+            z-index: 1000;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+        }
+        .cookie-banner button {
+            background: #f5a623;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #1e1e1e;
+        }
+        .cookie-banner button:hover {
+            background: #e0940f;
+        }
+        .hidden {
+            display: none;
+        }
+        @media (max-width: 700px) {
+            .site-header {
+                flex-direction: column;
                 text-align: center;
+                gap: 0.8rem;
             }
-            .cookie-header .cookie-icon {
-                font-size: 50px;
-                margin-bottom: 10px;
+            .hero h1 {
+                font-size: 1.8rem;
             }
-            .cookie-header h2 {
-                color: white;
-                font-size: 24px;
-                margin: 0;
+            .section-title {
+                font-size: 1.5rem;
             }
-            .cookie-body {
-                padding: 25px;
-                color: #333;
-                line-height: 1.6;
-            }
-            .cookie-body p {
-                margin-bottom: 15px;
-            }
-            .cookie-body ul {
-                margin: 15px 0;
-                padding-left: 20px;
-            }
-            .cookie-body li {
-                margin: 8px 0;
-            }
-            .cookie-buttons {
-                display: flex;
-                gap: 12px;
-                margin-top: 25px;
-                flex-wrap: wrap;
-            }
-            .cookie-btn {
-                flex: 1;
-                padding: 12px 20px;
-                font-size: 16px;
-                font-weight: bold;
-                border: none;
-                border-radius: 8px;
-                cursor: pointer;
-                transition: all 0.3s;
-                font-family: inherit;
-            }
-            .btn-accept {
-                background: #2e7d32;
-                color: white;
-            }
-            .btn-accept:hover {
-                background: #1b5e20;
-            }
-            .btn-decline {
-                background: #888;
-                color: white;
-            }
-            .btn-decline:hover {
-                background: #666;
-            }
-            .cookie-footer {
-                background: #f9f9f9;
-                padding: 15px;
-                text-align: center;
-                font-size: 12px;
-                border-top: 1px solid #eee;
-            }
-            .cookie-footer a {
-                color: #2e7d32;
-                text-decoration: none;
-                margin: 0 5px;
-            }
-            .cookie-footer a:hover {
-                text-decoration: underline;
-            }
-            
-            /* Hauptseite – zuerst ausgeblendet, bis Entscheidung getroffen */
-            #main-site {
-                display: none;
-            }
-            
-            /* Kleiner Button oben rechts – grün */
-            .cookie-settings-top-btn {
-                position: fixed;
-                top: 15px;
-                right: 20px;
-                z-index: 10000;
-                background-color: rgba(0,0,0,0.6);
-                backdrop-filter: blur(4px);
-                color: #2e7d32;
-                border: 1px solid rgba(255,255,255,0.3);
-                border-radius: 40px;
-                padding: 5px 12px;
-                font-size: 12px;
-                font-weight: normal;
-                cursor: pointer;
-                font-family: 'Segoe UI', Arial, sans-serif;
-                transition: all 0.2s ease;
-                text-decoration: none;
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-                box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-            }
-            .cookie-settings-top-btn:hover {
-                background-color: #2e7d32;
-                color: white;
-                border-color: #2e7d32;
-            }
-            @media (max-width: 768px) {
-                .cookie-settings-top-btn {
-                    top: 8px;
-                    right: 10px;
-                    padding: 3px 8px;
-                    font-size: 10px;
-                }
-            }
-            
-            /* Anpassung der JouwWeb-Elemente auf grüne Akzentfarbe */
-            .jw-strip--color-accent {
-                background-color: #e8f5e9 !important;  /* helles Hintergrundgrün für Akzent-Strips */
-            }
-            .jw-btn {
-                background-color: #2e7d32 !important;
-                border-color: #1b5e20 !important;
-            }
-            .jw-btn:hover {
-                background-color: #1b5e20 !important;
-            }
-            .jw-strip--color-shaded {
-                background-color: #c8e6c9 !important;
-            }
-            /* Linkfarbe im Footer und allgemein */
-            a, .jw-footer-text-content a, .jw-menu-link {
-                color: #2e7d32;
-            }
-            a:hover, .jw-menu-link:hover {
-                color: #1b5e20;
-            }
-            /* Aktiver Menüpunkt */
-            .jw-menu-is-active .jw-menu-link {
-                color: #1b5e20 !important;
-                font-weight: bold;
-            }
-            /* Buttons in den Strips (falls Custom) */
-            .jw-btn-caption {
-                color: white !important;
-            }
-            /* Headings in grüner Nuance optional */
-            h1, h2, .jw-heading-100, .jw-heading-130 {
-                color: #1b5e20;
-            }
-        </style>
-    </head>
-    <body
-        id="top"
-        class="jw-is-no-slideshow jw-header-is-image-text jw-is-segment-page jw-is-frontend jw-is-no-sidebar jw-is-no-messagebar jw-is-no-touch-device jw-is-no-mobile"
-        data-jouwweb-page="35820126"
-        data-jouwweb-segment-id="35820126"
-        data-jouwweb-segment-type="page"
-        data-template-threshold="960"
-        data-template-name="general|clean|blanco"
-        itemscope
-        itemtype="https://schema.org/WebPage"
-    >
-        <meta itemprop="url" content="https://baumannbiohonig.github.io/produkte.html">
-        
-        <!-- Kleiner Button oben rechts: Cookie-Einstellungen ändern (immer klickbar) -->
-        <div id="cookie-settings-top" class="cookie-settings-top-btn">
-            🍪 Cookie-Einstellungen
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <header class="site-header">
+        <div class="logo-area">
+            <img class="logo-img" src="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&height=70" alt="BIO Honig Baumann Logo">
+            <span class="site-title">BIO Honig Baumann</span>
         </div>
-        
-        <!-- COOKIE POPUP (DSGVO-konform, ohne PHP) -->
-        <div id="cookie-popup">
-            <div class="cookie-container">
-                <div class="cookie-header">
-                    <div class="cookie-icon">🍪</div>
-                    <h2>Cookie Hinweis (DSGVO)</h2>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ueber-uns.html">Über uns</a></li>
+                <li><a href="unser-honigsortiment.html">Honigsortiment</a></li>
+                <li><a href="produkte.html" class="active">Produkte</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+                <li><a href="datenschutz.html">Datenschutz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Unsere Bio-Produkte</h1>
+    </div>
+
+    <main class="content">
+        <!-- HONIGSORTIMENT -->
+        <section class="section">
+            <h2 class="section-title">🍯 Bio-Honigspezialitäten</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-name">🌼 Bio Blütenhonig</div>
+                    <div class="product-price">€ 9,00 (500g)</div>
+                    <div class="product-desc">Milder, heller Bio-Honig mit zartem Blütenaroma – gesammelt im Eferdinger Hügelland. Ideal für den Start in den Tag.</div>
                 </div>
-                <div class="cookie-body">
-                    <p>Diese Website verwendet notwendige Cookies für den Betrieb. Mit Ihrer Einwilligung wird zusätzlich <strong>Plausible Analytics</strong> aktiviert – eine datensparsame Analyse ohne personenbezogene Daten.</p>
-                    <p>Sie können Ihre Entscheidung jederzeit über den Button "Cookie-Einstellungen" oben rechts widerrufen.</p>
-                    <p><strong>Hinweis:</strong> Ihre Entscheidung wird lokal auf Ihrem Gerät gespeichert (kein Server-Logging).</p>
-                    <div class="cookie-buttons">
-                        <button id="accept-cookies" class="cookie-btn btn-accept">✅ Alle akzeptieren</button>
-                        <button id="decline-cookies" class="cookie-btn btn-decline">❌ Nur notwendige</button>
-                    </div>
+                <div class="product-card">
+                    <div class="product-name">🌲 Bio Waldhonig</div>
+                    <div class="product-price">€ 10,00 (500g)</div>
+                    <div class="product-desc">Kräftiger, herb-würziger Honig aus den Wäldern rund um Hartkirchen. Perfekt zu Käse oder im Tee.</div>
                 </div>
-                <div class="cookie-footer">
-                    <a href="datenschutz.html">Mehr zum Datenschutz</a> | 
-                    <a href="impressum.html">Impressum</a>
+                <div class="product-card">
+                    <div class="product-name">🌸 Bio Honig mit Blütenpollen</div>
+                    <div class="product-price">€ 11,50 (250g)</div>
+                    <div class="product-desc">Cremiger Honig angereichert mit Blütenpollen – eine natürliche Quelle für Vitamine & Mineralstoffe.</div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Hauptseite (gesamter Content) -->
-        <div id="main-site">
-            <a href="#main-content" class="jw-skip-link">
-                Zum Hauptinhalt springen            </a>
-            <div class="jw-background"></div>
-            <div class="jw-body">
-                
-                <header class="block-header js-topbar-content-container js-fixed-header-container">
-                    <div class="block-header__inner">
-                        <div class="jw-mobile-menu jw-mobile-is-text js-mobile-menu">
-                            <span class="jw-mobile-menu__button jw-mobile-menu__button--dummy"></span>
-                            <div class="jw-mobile-header jw-mobile-header--image-text">
-                                <a class="jw-mobile-header-content" href="/">
-                                    <img class="jw-mobile-logo jw-mobile-logo--square" src="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&amp;enable=upscale&amp;height=70" srcset="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&amp;enable=upscale&amp;height=70 1x, https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&amp;enable=upscale&amp;height=140&amp;quality=70 2x" alt="BIO Honig Baumann" title="BIO Honig Baumann">
-                                    <div class="jw-mobile-text">BIO Honig Baumann</div>
-                                </a>
-                            </div>
-                            <button type="button" class="jw-mobile-menu__button jw-mobile-toggle" aria-label="Menü anzeigen">
-                                <span class="jw-icon-burger"></span>
-                            </button>
-                        </div>
-                        <div class="block-header__brand">
-                            <div class="jw-header-logo">
-                                <div id="jw-header-image-container" class="jw-header jw-header-image-container jw-header-image-toggle">
-                                    <a href="/">
-                                        <img id="jw-header-image" data-image-id="225310065" srcset="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&amp;width=100 100w, https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&amp;width=200 200w" class="jw-header-image" title="BIO Honig Baumann" style="width: 100px;" sizes="100px" width="100" height="100" alt="BIO Honig Baumann">
-                                    </a>
-                                </div>
-                                <div class="jw-header jw-header-title-container jw-header-text jw-header-text-toggle" data-stylable="true">
-                                    <a id="jw-header-title" class="jw-header-title" href="/">BIO Honig Baumann</a>
-                                </div>
-                            </div>
-                        </div>
-                        <nav class="block-header__menu jw-menu-copy">
-                            <ul id="jw-menu" class="jw-menu jw-menu-horizontal">
-                                <li class="jw-menu-item"><a class="jw-menu-link" href="/" data-page-link-id="35820112"><span>Home</span></a></li>
-                                <li class="jw-menu-item"><a class="jw-menu-link" href="ueber-uns.html" data-page-link-id="35820124"><span>Über uns</span></a></li>
-                                <li class="jw-menu-item"><a class="jw-menu-link" href="unser-honigsortiment.html" data-page-link-id="35820125"><span>Unser Honigsortiment</span></a></li>
-                                <li class="jw-menu-item jw-menu-is-active"><a class="jw-menu-link js-active-menu-item" href="produkte.html" data-page-link-id="35820126"><span>Produkte</span></a></li>
-                                <li class="jw-menu-item"><a class="jw-menu-link" href="impressum.html" data-page-link-id="35831551"><span>Impressum</span></a></li>
-                                <li class="jw-menu-item"><a class="jw-menu-link" href="datenschutz.html" data-page-link-id="35831559"><span>Datenschutz</span></a></li>
-                            </ul>
-                            <script nonce="ca5a34a04ed227f6ea04c4b008d6e3a8" id="jw-mobile-menu-template" type="text/template">
-                                <ul id="jw-menu" class="jw-menu jw-menu-horizontal jw-menu-spacing--editor-bar">
-                                    <li class="jw-menu-item"><a class="jw-menu-link" href="/" data-page-link-id="35820112"><span>Home</span></a></li>
-                                    <li class="jw-menu-item"><a class="jw-menu-link" href="ueber-uns.html" data-page-link-id="35820124"><span>Über uns</span></a></li>
-                                    <li class="jw-menu-item"><a class="jw-menu-link" href="unser-honigsortiment.html" data-page-link-id="35820125"><span>Unser Honigsortiment</span></a></li>
-                                    <li class="jw-menu-item jw-menu-is-active"><a class="jw-menu-link js-active-menu-item" href="produkte.html" data-page-link-id="35820126"><span>Produkte</span></a></li>
-                                    <li class="jw-menu-item"><a class="jw-menu-link" href="impressum.html" data-page-link-id="35831551"><span>Impressum</span></a></li>
-                                    <li class="jw-menu-item"><a class="jw-menu-link" href="datenschutz.html" data-page-link-id="35831559"><span>Datenschutz</span></a></li>
-                                </ul>
-                            </script>
-                        </nav>
-                    </div>
-                </header>
+        </section>
 
-                <div class="block-slideshow"></div>
-
-                <div class="main-content">
-                    <main id="main-content" class="block-content">
-                        <div data-section-name="content" class="jw-section jw-section-content jw-responsive">
-                            <div class="jw-block-element">
-                                <div id="jw-element-711412538" data-jw-element-id="711412538" class="jw-tree-node jw-element jw-strip-root jw-tree-container jw-responsive jw-node-is-first-child jw-node-is-last-child">
-                                    <!-- Einleitung -->
-                                    <div id="jw-element-711427725" data-jw-element-id="711427725" class="jw-tree-node jw-element jw-strip jw-tree-container jw-responsive jw-strip--narrow jw-strip--style-color jw-strip--color-accent jw-strip--padding-both jw-node-is-first-child jw-strip--primary">
-                                        <div class="jw-strip__content-container"><div class="jw-strip__content jw-responsive">
-                                            <div id="jw-element-711427726" data-jw-element-id="711427726" class="jw-tree-node jw-element jw-image-text jw-node-is-first-child"><div class="jw-element-imagetext-text"><h1 class="jw-heading-130" style="text-align:center">Entdecken Sie die Vielfalt unserer Bio-Produkte</h1></div></div>
-                                            <div id="jw-element-711427727" data-jw-element-id="711427727" class="jw-tree-node jw-element jw-image-text"><div class="jw-element-imagetext-text"><p style="text-align:center">Tauchen Sie ein in die Welt von BIO Honig Baumann. Hier präsentieren wir Ihnen unsere sorgfältig hergestellten Produkte, die Reinheit und Qualität ausstrahlen. Begleiten Sie uns auf einer Geschmacksreise durch die Natur Österreichs.</p></div></div>
-                                            <div id="jw-element-711427728" data-jw-element-id="711427728" class="jw-tree-node jw-element jw-button jw-node-is-last-child"><div class="jw-btn-container jw-btn-is-center"><a href="#produktsortiment" class="jw-element-content jw-btn jw-btn--size-medium jw-btn--icon-position-start"><span class="jw-btn-caption">Jetzt stöbern</span></a></div></div>
-                                        </div></div>
-                                    </div>
-                                    <!-- Produktsortiment (Anker) -->
-                                    <div id="produktsortiment" class="jw-tree-node jw-element jw-strip jw-tree-container jw-responsive jw-strip--default jw-strip--style-color jw-strip--color-accent jw-strip--padding-both">
-                                        <div class="jw-strip__content-container"><div class="jw-strip__content jw-responsive">
-                                            <div id="jw-element-711427730" data-jw-element-id="711427730" class="jw-tree-node jw-element jw-image-text jw-node-is-first-child"><div class="jw-element-imagetext-text"><h2 class="jw-heading-100">Unser Produktsortiment</h2></div></div>
-                                            <div id="jw-element-711427731" data-jw-element-id="711427731" class="jw-tree-node jw-element jw-image-text"><div class="jw-element-imagetext-text"><p>Wir bieten eine exquisite Auswahl an Bio-Produkten, die alle mit größter Sorgfalt und im Einklang mit der Natur hergestellt werden. Entdecken Sie die Reinheit unserer Honige und weiteren Bienenprodukte.</p></div></div>
-                                            <div id="jw-element-711427732" data-jw-element-id="711427732" class="jw-tree-node jw-element jw-spacer"><div class="jw-element-spacer-container" style="height:5px"></div></div>
-                                            <div id="jw-element-711427733" data-jw-element-id="711427733" class="jw-tree-node jw-element jw-columns jw-tree-container jw-responsive jw-tree-horizontal jw-columns--mode-flex">
-                                                <!-- Spalte 1: Blütenhonig -->
-                                                <div id="jw-element-711427734" data-jw-element-id="711427734" style="width:33.333333333333%" class="jw-tree-node jw-element jw-column jw-tree-container jw-responsive jw-node-is-first-child">
-                                                    <div id="jw-element-711427735" data-jw-element-id="711427735" class="jw-tree-node jw-element jw-image jw-node-is-first-child"><div class="jw-intent jw-element-image jw-element-content jw-element-image-is-left jw-element-image--full-width-to-640" style="width:1920px"><picture class="jw-element-image__image-wrapper jw-image-is-square jw-intrinsic" style="padding-top:100%"><img class="jw-element-image__image jw-intrinsic__item" style="--jw-element-image--pan-x:0.5;--jw-element-image--pan-y:0.5" alt="Bio-Blütenhonig Glas" src="https://primary.jwwb.nl/pexels/56/5634207.jpeg?enable-io=true&amp;enable=upscale&amp;crop=1%3A1&amp;width=800" srcset="https://primary.jwwb.nl/pexels/56/5634207.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=96 96w, https://primary.jwwb.nl/pexels/56/5634207.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=147 147w, https://primary.jwwb.nl/pexels/56/5634207.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=226 226w, https://primary.jwwb.nl/pexels/56/5634207.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=347 347w, https://primary.jwwb.nl/pexels/56/5634207.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=532 532w, https://primary.jwwb.nl/pexels/56/5634207.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=816 816w, https://primary.jwwb.nl/pexels/56/5634207.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=1252 1252w, https://primary.jwwb.nl/pexels/56/5634207.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=1920 1920w" sizes="auto, min(100vw, 1200px), 100vw" loading="lazy" width="800" height="800"></picture></div></div>
-                                                    <div id="jw-element-711427736" data-jw-element-id="711427736" class="jw-tree-node jw-element jw-image-text"><div class="jw-element-imagetext-text"><h2 class="jw-heading-85">Bio-Blütenhonig</h2></div></div>
-                                                    <div id="jw-element-711427737" data-jw-element-id="711427737" class="jw-tree-node jw-element jw-image-text jw-node-is-last-child"><div class="jw-element-imagetext-text"><p>Unser milder Bio-Blütenhonig fängt die Essenz der österreichischen Blumenwiesen ein. Ein wahrer Genuss für den Gaumen.</p></div></div>
-                                                </div>
-                                                <!-- Spalte 2: Waldhonig -->
-                                                <div id="jw-element-711427738" data-jw-element-id="711427738" style="width:33.333333333333%" class="jw-tree-node jw-element jw-column jw-tree-container jw-responsive">
-                                                    <div id="jw-element-711427739" data-jw-element-id="711427739" class="jw-tree-node jw-element jw-image jw-node-is-first-child"><div class="jw-intent jw-element-image jw-element-content jw-element-image-is-left jw-element-image--full-width-to-640" style="width:1920px"><picture class="jw-element-image__image-wrapper jw-image-is-square jw-intrinsic" style="padding-top:100%"><img class="jw-element-image__image jw-intrinsic__item" style="--jw-element-image--pan-x:0.5;--jw-element-image--pan-y:0.5" alt="Bio-Waldhonig Glas" src="https://primary.jwwb.nl/pexels/88/8851477.jpeg?enable-io=true&amp;enable=upscale&amp;crop=1%3A1&amp;width=800" srcset="https://primary.jwwb.nl/pexels/88/8851477.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=96 96w, https://primary.jwwb.nl/pexels/88/8851477.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=147 147w, https://primary.jwwb.nl/pexels/88/8851477.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=226 226w, https://primary.jwwb.nl/pexels/88/8851477.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=347 347w, https://primary.jwwb.nl/pexels/88/8851477.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=532 532w, https://primary.jwwb.nl/pexels/88/8851477.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=816 816w, https://primary.jwwb.nl/pexels/88/8851477.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=1252 1252w, https://primary.jwwb.nl/pexels/88/8851477.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=1920 1920w" sizes="auto, min(100vw, 1200px), 100vw" loading="lazy" width="800" height="800"></picture></div></div>
-                                                    <div id="jw-element-711427740" data-jw-element-id="711427740" class="jw-tree-node jw-element jw-image-text"><div class="jw-element-imagetext-text"><h2 class="jw-heading-85">Bio-Waldhonig</h2></div></div>
-                                                    <div id="jw-element-711427741" data-jw-element-id="711427741" class="jw-tree-node jw-element jw-image-text jw-node-is-last-child"><div class="jw-element-imagetext-text"><p>Der kräftige Bio-Waldhonig ist ein intensives Geschmackserlebnis aus den Wäldern Österreichs, reich an wertvollen Inhaltsstoffen.</p></div></div>
-                                                </div>
-                                                <!-- Spalte 3: Propolis -->
-                                                <div id="jw-element-711427742" data-jw-element-id="711427742" style="width:33.333333333333%" class="jw-tree-node jw-element jw-column jw-tree-container jw-responsive jw-node-is-last-child">
-                                                    <div id="jw-element-711427743" data-jw-element-id="711427743" class="jw-tree-node jw-element jw-image jw-node-is-first-child"><div class="jw-intent jw-element-image jw-element-content jw-element-image-is-left jw-element-image--full-width-to-640" style="width:1920px"><picture class="jw-element-image__image-wrapper jw-image-is-square jw-intrinsic" style="padding-top:100%"><img class="jw-element-image__image jw-intrinsic__item" style="--jw-element-image--pan-x:0.5;--jw-element-image--pan-y:0.5" alt="Bio Propolis Tropfen" src="https://primary.jwwb.nl/pexels/66/6694135.jpeg?enable-io=true&amp;enable=upscale&amp;crop=1%3A1&amp;width=800" srcset="https://primary.jwwb.nl/pexels/66/6694135.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=96 96w, https://primary.jwwb.nl/pexels/66/6694135.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=147 147w, https://primary.jwwb.nl/pexels/66/6694135.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=226 226w, https://primary.jwwb.nl/pexels/66/6694135.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=347 347w, https://primary.jwwb.nl/pexels/66/6694135.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=532 532w, https://primary.jwwb.nl/pexels/66/6694135.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=816 816w, https://primary.jwwb.nl/pexels/66/6694135.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=1252 1252w, https://primary.jwwb.nl/pexels/66/6694135.jpeg?enable-io=true&amp;crop=1%3A1&amp;width=1920 1920w" sizes="auto, min(100vw, 1200px), 100vw" loading="lazy" width="800" height="800"></picture></div></div>
-                                                    <div id="jw-element-711427744" data-jw-element-id="711427744" class="jw-tree-node jw-element jw-image-text"><div class="jw-element-imagetext-text"><h2 class="jw-heading-85">Bio Propolis</h2></div></div>
-                                                    <div id="jw-element-711427745" data-jw-element-id="711427745" class="jw-tree-node jw-element jw-image-text jw-node-is-last-child"><div class="jw-element-imagetext-text"><p>Neben unseren Honigen bieten wir auch Bio Propolis an, ein wertvolles Naturprodukt mit vielfältigen Anwendungsmöglichkeiten.</p></div></div>
-                                                </div>
-                                            </div>
-                                            <div id="jw-element-711427746" data-jw-element-id="711427746" class="jw-tree-node jw-element jw-spacer"><div class="jw-element-spacer-container" style="height:20px"></div></div>
-                                            <div id="jw-element-711427747" data-jw-element-id="711427747" class="jw-tree-node jw-element jw-button jw-node-is-last-child"><div class="jw-btn-container jw-btn-is-center"><a href="unser-honigsortiment.html" class="jw-element-content jw-btn jw-btn--size-medium jw-btn--icon-position-start"><span class="jw-btn-caption">Mehr über unsere Honigsorten erfahren</span></a></div></div>
-                                        </div></div>
-                                    </div>
-                                    <!-- Bio-Zertifizierung (Zwischenüberschrift) -->
-                                    <div id="jw-element-711427748" data-jw-element-id="711427748" class="jw-tree-node jw-element jw-strip jw-tree-container jw-responsive jw-strip--default jw-strip--style-color jw-strip--color-shaded jw-strip--padding-both">
-                                        <div class="jw-strip__content-container"><div class="jw-strip__content jw-responsive">
-                                            <div id="jw-element-711427749" data-jw-element-id="711427749" class="jw-tree-node jw-element jw-image-text jw-node-is-first-child"><div class="jw-element-imagetext-text"><h1 class="jw-heading-130" style="text-align:center">Bio-Zertifizierung: Unser Versprechen an Sie</h1></div></div>
-                                            <div id="jw-element-711427750" data-jw-element-id="711427750" class="jw-tree-node jw-element jw-image-text jw-node-is-last-child"><div class="jw-element-imagetext-text"><p style="text-align:center">Unsere Bio-Zertifizierung steht für Reinheit und das Wohlergehen unserer Bienen. Erfahren Sie, was unsere Produkte so einzigartig macht und wie wir Qualität sicherstellen.</p></div></div>
-                                        </div></div>
-                                    </div>
-                                    <!-- Details zu Reinheit und Herstellung -->
-                                    <div id="jw-element-711427751" data-jw-element-id="711427751" class="jw-tree-node jw-element jw-strip jw-tree-container jw-responsive jw-strip--default jw-strip--style-color jw-strip--color-accent jw-strip--padding-both jw-node-is-last-child">
-                                        <div class="jw-strip__content-container"><div class="jw-strip__content jw-responsive">
-                                            <div id="jw-element-711427752" data-jw-element-id="711427752" class="jw-tree-node jw-element jw-columns jw-tree-container jw-responsive jw-tree-horizontal jw-columns--mode-flex jw-node-is-first-child">
-                                                <!-- Bild links -->
-                                                <div id="jw-element-711427753" data-jw-element-id="711427753" style="width:50%" class="jw-tree-node jw-element jw-column jw-tree-container jw-responsive jw-node-is-first-child">
-                                                    <div id="jw-element-711427754" data-jw-element-id="711427754" class="jw-tree-node jw-element jw-image jw-node-is-first-child jw-node-is-last-child"><div class="jw-intent jw-element-image jw-element-content jw-element-image-is-left jw-element-image--full-width-to-640" style="width:1920px"><picture class="jw-element-image__image-wrapper jw-image-is-square jw-intrinsic" style="padding-top:75%"><img class="jw-element-image__image jw-intrinsic__item" style="--jw-element-image--pan-x:0.5;--jw-element-image--pan-y:0.5" alt="Imker bei der Arbeit" src="https://primary.jwwb.nl/pexels/20/20829042.jpeg?enable-io=true&amp;enable=upscale&amp;crop=1.3333%3A1&amp;width=800" srcset="https://primary.jwwb.nl/pexels/20/20829042.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=96 96w, https://primary.jwwb.nl/pexels/20/20829042.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=147 147w, https://primary.jwwb.nl/pexels/20/20829042.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=226 226w, https://primary.jwwb.nl/pexels/20/20829042.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=347 347w, https://primary.jwwb.nl/pexels/20/20829042.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=532 532w, https://primary.jwwb.nl/pexels/20/20829042.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=816 816w, https://primary.jwwb.nl/pexels/20/20829042.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=1252 1252w, https://primary.jwwb.nl/pexels/20/20829042.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=1920 1920w" sizes="auto, min(100vw, 1200px), 100vw" loading="lazy" width="800" height="600"></picture></div></div>
-                                                </div>
-                                                <!-- Text rechts -->
-                                                <div id="jw-element-711427755" data-jw-element-id="711427755" style="width:50%" class="jw-tree-node jw-element jw-column jw-tree-container jw-responsive jw-node-is-last-child">
-                                                    <div id="jw-element-711427756" data-jw-element-id="711427756" class="jw-tree-node jw-element jw-spacer jw-node-is-first-child"><div class="jw-element-spacer-container" style="height:50px"></div></div>
-                                                    <div id="jw-element-711427757" data-jw-element-id="711427757" class="jw-tree-node jw-element jw-image-text"><div class="jw-element-imagetext-text"><h2 class="jw-heading-100">Reinheit, die man schmeckt</h2></div></div>
-                                                    <div id="jw-element-711427758" data-jw-element-id="711427758" class="jw-tree-node jw-element jw-image-text jw-node-is-last-child"><div class="jw-element-imagetext-text"><p>In der Bio-Imkerei verzichten wir vollständig auf chemische Pestizide und synthetische Mittel. Dies gewährleistet die außergewöhnliche Reinheit unseres Honigs und schützt gleichzeitig die Natur und unsere Bienen. Sie schmecken den Unterschied in jeder Löffel.</p></div></div>
-                                                </div>
-                                            </div>
-                                            <div id="jw-element-711427759" data-jw-element-id="711427759" class="jw-tree-node jw-element jw-columns jw-tree-container jw-responsive jw-tree-horizontal jw-columns--mode-flex jw-node-is-last-child">
-                                                <!-- Text links -->
-                                                <div id="jw-element-711427760" data-jw-element-id="711427760" style="width:50%" class="jw-tree-node jw-element jw-column jw-tree-container jw-responsive jw-node-is-first-child">
-                                                    <div id="jw-element-711427761" data-jw-element-id="711427761" class="jw-tree-node jw-element jw-spacer jw-node-is-first-child"><div class="jw-element-spacer-container" style="height:50px"></div></div>
-                                                    <div id="jw-element-711427762" data-jw-element-id="711427762" class="jw-tree-node jw-element jw-image-text"><div class="jw-element-imagetext-text"><h2 class="jw-heading-100">Einzigartige Herstellungsprozesse</h2></div></div>
-                                                    <div id="jw-element-711427763" data-jw-element-id="711427763" class="jw-tree-node jw-element jw-image-text"><div class="jw-element-imagetext-text"><p>Unsere Bio-Zertifizierung geht über das Gewöhnliche hinaus. Wir arbeiten mit einem geschlossenen Wachskreislauf und verwenden nur eigenes oder zertifiziertes Bio-Wachs, frei von Rückständen. Während der Verarbeitung wird der Honig nie über 35 °C erwärmt, um alle Enzyme und Aromen zu bewahren.</p></div></div>
-                                                    <div id="jw-element-711427764" data-jw-element-id="711427764" class="jw-tree-node jw-element jw-button jw-node-is-last-child"><div class="jw-btn-container jw-btn-is-left"><a href="ueber-uns.html" class="jw-element-content jw-btn jw-btn--size-medium jw-btn--icon-position-start"><span class="jw-btn-caption">Mehr über uns erfahren</span></a></div></div>
-                                                </div>
-                                                <!-- Bild rechts -->
-                                                <div id="jw-element-711427765" data-jw-element-id="711427765" style="width:50%" class="jw-tree-node jw-element jw-column jw-tree-container jw-responsive jw-node-is-last-child">
-                                                    <div id="jw-element-711427766" data-jw-element-id="711427766" class="jw-tree-node jw-element jw-image jw-node-is-first-child jw-node-is-last-child"><div class="jw-intent jw-element-image jw-element-content jw-element-image-is-left jw-element-image--full-width-to-640" style="width:1920px"><picture class="jw-element-image__image-wrapper jw-image-is-square jw-intrinsic" style="padding-top:75%"><img class="jw-element-image__image jw-intrinsic__item" style="--jw-element-image--pan-x:0.5;--jw-element-image--pan-y:0.5" alt="Honigernte in der Imkerei" src="https://primary.jwwb.nl/pexels/88/8851478.jpeg?enable-io=true&amp;enable=upscale&amp;crop=1.3333%3A1&amp;width=800" srcset="https://primary.jwwb.nl/pexels/88/8851478.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=96 96w, https://primary.jwwb.nl/pexels/88/8851478.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=147 147w, https://primary.jwwb.nl/pexels/88/8851478.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=226 226w, https://primary.jwwb.nl/pexels/88/8851478.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=347 347w, https://primary.jwwb.nl/pexels/88/8851478.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=532 532w, https://primary.jwwb.nl/pexels/88/8851478.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=816 816w, https://primary.jwwb.nl/pexels/88/8851478.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=1252 1252w, https://primary.jwwb.nl/pexels/88/8851478.jpeg?enable-io=true&amp;crop=1.3333%3A1&amp;width=1920 1920w" sizes="auto, min(100vw, 1200px), 100vw" loading="lazy" width="800" height="600"></picture></div></div>
-                                                </div>
-                                            </div>
-                                        </div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </main>
+        <!-- WEITERE BIENENPRODUKTE -->
+        <section class="section">
+            <h2 class="section-title">🐝 Weitere Bienenprodukte</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-name">🍯 Bio Propolis-Tinktur</div>
+                    <div class="product-price">€ 11,00 (30ml)</div>
+                    <div class="product-desc">Hochwertige Tinktur aus dem wertvollen Kittharz der Bienen – zur äußeren und inneren Anwendung.</div>
                 </div>
+                <div class="product-card">
+                    <div class="product-name">🌸 Bio Blütenpollen pur</div>
+                    <div class="product-price">€ 10,00 (100g)</div>
+                    <div class="product-desc">Reiner BIO Blütenpollen – eine wertvolle Ergänzung für Müsli, Joghurt oder Smoothies.</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-name">🍯 Honig-Geschenkset</div>
+                    <div class="product-price">€ 24,90 (2x250g)</div>
+                    <div class="product-desc">Probierset mit Blütenhonig & Waldhonig in einer edlen Geschenkverpackung – ideal als Mitbringsel.</div>
+                </div>
+            </div>
+        </section>
 
-                <footer class="block-footer">
-                    <div data-section-name="footer" class="jw-section jw-section-footer jw-responsive">
-                        <div class="jw-strip jw-strip--default jw-strip--style-color jw-strip--primary jw-strip--color-default jw-strip--padding-both">
-                            <div class="jw-strip__content-container"><div class="jw-strip__content jw-responsive">
-                                <div class="jw-block-element"><div id="jw-element-711412091" data-jw-element-id="711412091" class="jw-tree-node jw-element jw-simple-root jw-tree-container jw-tree-container--empty jw-responsive jw-node-is-first-child jw-node-is-last-child"></div></div>
-                                <div class="jw-block-footer-content">
-                                    <div class="jw-credits clear">
-                                        <div class="jw-credits-owner"><div id="jw-footer-text"><div class="jw-footer-text-content">&copy; 2026 BIO Honig Baumann</div></div></div>
-                                        <div class="jw-credits-right"><div id="jw-credits-tool"><small>Mit Unterstützung von <a href="#" rel="nofollow">Günther Danninger</a></small></div></div>
-                                    </div>
-                                </div>
-                            </div></div>
-                        </div>
-                    </div>
-                </footer>
-                
-                <div class="jw-bottom-bar__container">
-                    <div class="jw-editor-bar"><div class="jw-preview-link"></div></div>
-                    <div class="jw-bottom-bar__spacer"><div class="jw-website-spacer jw-website-spacer--jump-to-editor"></div></div>
-                    <div id="jw-variable-loaded" style="display:none"></div>
-                    <div id="jw-variable-values" style="display:none">
-                        <span data-jw-variable-key="background-color" class="jw-variable-value-background-color"></span>
-                        <span data-jw-variable-key="background" class="jw-variable-value-background"></span>
-                        <span data-jw-variable-key="font-family" class="jw-variable-value-font-family"></span>
-                        <span data-jw-variable-key="paragraph-color" class="jw-variable-value-paragraph-color"></span>
-                        <span data-jw-variable-key="paragraph-link-color" class="jw-variable-value-paragraph-link-color"></span>
-                        <span data-jw-variable-key="paragraph-font-size" class="jw-variable-value-paragraph-font-size"></span>
-                        <span data-jw-variable-key="heading-color" class="jw-variable-value-heading-color"></span>
-                        <span data-jw-variable-key="heading-link-color" class="jw-variable-value-heading-link-color"></span>
-                        <span data-jw-variable-key="heading-font-size" class="jw-variable-value-heading-font-size"></span>
-                        <span data-jw-variable-key="heading-font-family" class="jw-variable-value-heading-font-family"></span>
-                        <span data-jw-variable-key="menu-text-color" class="jw-variable-value-menu-text-color"></span>
-                        <span data-jw-variable-key="menu-text-link-color" class="jw-variable-value-menu-text-link-color"></span>
-                        <span data-jw-variable-key="menu-text-font-size" class="jw-variable-value-menu-text-font-size"></span>
-                        <span data-jw-variable-key="menu-font-family" class="jw-variable-value-menu-font-family"></span>
-                        <span data-jw-variable-key="menu-capitalize" class="jw-variable-value-menu-capitalize"></span>
-                        <span data-jw-variable-key="website-size" class="jw-variable-value-website-size"></span>
-                        <span data-jw-variable-key="u-header-configuration" class="jw-variable-value-u-header-configuration"></span>
-                        <span data-jw-variable-key="u-header-background-color" class="jw-variable-value-u-header-background-color"></span>
-                        <span data-jw-variable-key="u-header-spacing" class="jw-variable-value-u-header-spacing"></span>
-                        <span data-jw-variable-key="u-header-scroll-effect" class="jw-variable-value-u-header-scroll-effect"></span>
-                        <span data-jw-variable-key="accent-color" class="jw-variable-value-accent-color"></span>
-                        <span data-jw-variable-key="footer-color" class="jw-variable-value-footer-color"></span>
-                        <span data-jw-variable-key="footer-text-color" class="jw-variable-value-footer-text-color"></span>
-                        <span data-jw-variable-key="footer-text-link-color" class="jw-variable-value-footer-text-link-color"></span>
-                        <span data-jw-variable-key="footer-text-font-size" class="jw-variable-value-footer-text-font-size"></span>
+        <!-- KUNDENSTIMMEN (wie auf der Startseite) -->
+        <section class="section">
+            <h2 class="section-title">⭐ Was unsere Kunden sagen</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>“</p>
+                    <p>Der Honig von BIO Honig Baumann ist einfach unvergleichlich! Man schmeckt die Liebe zur Natur in jedem Tropfen. Ein Muss für jeden Honigliebhaber!</p>
+                    <p><strong>– Maria S. aus Linz</strong></p>
+                </div>
+                <div class="testimonial">
+                    <p>“</p>
+                    <p>Ich schätze die biologische Qualität und die Nachhaltigkeit, die BIO Honig Baumann lebt. Der Honig ist nicht nur köstlich, sondern auch ein Beitrag zum Umweltschutz.</p>
+                    <p><strong>– Markus F. aus Wels</strong></p>
+                </div>
+                <div class="testimonial">
+                    <p>“</p>
+                    <p>Endlich ein Honig, der wirklich nach Honig schmeckt! Die Sortenvielfalt ist beeindruckend und jede einzelne ein Genuss. Ich bin Stammkunde geworden.</p>
+                    <p><strong>– Anna K. aus Eferding</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KONTAKT & KARTE (wie Original) -->
+        <section class="section">
+            <h2 class="section-title">📞 Kontakt & Abholung</h2>
+            <div class="kontakt-info">
+                <div class="kontakt-block">
+                    <h3>Unsere Öffnungszeiten</h3>
+                    <p><strong>Montag – Samstag:</strong><br>08:00 – 18:00 Uhr</p>
+                    <p><strong>Sonntag & Feiertage:</strong><br>nach telefonischer Vereinbarung</p>
+                    <p><strong>Tel.:</strong> <a href="tel:+436607579524">+43 660 7579524</a></p>
+                    <p><strong>E-Mail:</strong> <a href="mailto:baumann.bernhard@gmx.net">baumann.bernhard@gmx.net</a></p>
+                </div>
+                <div class="kontakt-block">
+                    <h3>Adresse</h3>
+                    <p>Staudachstraße 1, 4081 Hartkirchen, Österreich</p>
+                    <div class="map">
+                        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=13.9944%2C48.3578%2C14.0024%2C48.3624&layer=mapnik&marker=48.3601%2C13.9984" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- DSGVO-Cookie-JavaScript (angepasst für GitHub Pages – kein PHP) -->
-        <script>
-        (function() {
-            // ---------- Hilfsfunktionen ----------
-            function setCookie(name, value, days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                document.cookie = name + "=" + value + "; expires=" + date.toUTCString() + "; path=/; SameSite=Lax";
-            }
-            
-            function getCookie(name) {
-                var ca = document.cookie.split(';');
-                for(var i = 0; i < ca.length; i++) {
-                    var c = ca[i].trim();
-                    if (c.indexOf(name + "=") === 0) return c.substring(name.length + 1);
-                }
-                return null;
-            }
-            
-            function deleteCookie(name) {
-                document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            }
-            
-            // Logging nur im localStorage (kein PHP auf GitHub Pages)
-            function logCookieDecisionLocally(decision) {
-                var timestamp = new Date().toISOString();
-                var userAgent = navigator.userAgent;
-                try {
-                    var existingLogs = localStorage.getItem('cookie_decision_logs') || '';
-                    localStorage.setItem('cookie_decision_logs', existingLogs + timestamp + " | Decision: " + decision + " | User-Agent: " + userAgent + "\n");
-                } catch(e) {}
-            }
-            
-            // ---------- Tracking dynamisch laden (nur Plausible) ----------
-            function loadPlausible() {
-                var plausibleScript = document.createElement('script');
-                plausibleScript.src = 'https://plausible.io/js/script.manual.js';
-                plausibleScript.setAttribute('data-domain', 'shard16.jouwweb.nl');
-                plausibleScript.defer = true;
-                plausibleScript.nonce = 'ca5a34a04ed227f6ea04c4b008d6e3a8';
-                document.head.appendChild(plausibleScript);
-                window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments); };
-            }
-            
-            // ---------- UI-Funktionen ----------
-            var popup = document.getElementById('cookie-popup');
-            var mainSite = document.getElementById('main-site');
-            var acceptBtn = document.getElementById('accept-cookies');
-            var declineBtn = document.getElementById('decline-cookies');
-            
-            function showMainSite() {
-                if (popup) popup.style.display = 'none';
-                if (mainSite) mainSite.style.display = 'block';
-            }
-            
-            function handleAccept() {
-                setCookie('cookie_consent', 'accepted', 365);
-                deleteCookie('cookie_consent_declined');
-                logCookieDecisionLocally('accepted');
-                showMainSite();
-                loadPlausible();  // Tracking erst jetzt laden
-            }
-            
-            function handleDecline() {
-                setCookie('cookie_consent_declined', 'true', 365);
-                deleteCookie('cookie_consent');
-                logCookieDecisionLocally('declined');
-                showMainSite();
-                // Kein Tracking wird geladen
-            }
-            
-            function resetAndReload() {
-                deleteCookie('cookie_consent');
-                deleteCookie('cookie_consent_declined');
-                location.reload();
-            }
-            
-            // Prüfe bereits getroffene Entscheidung
-            var accepted = getCookie('cookie_consent');
-            var declined = getCookie('cookie_consent_declined');
-            
-            if (accepted === 'accepted') {
-                showMainSite();
-                loadPlausible();
-            } else if (declined === 'true') {
-                showMainSite();
-                // Kein Tracking
-            } else {
-                if (popup) popup.style.display = 'flex';
-                if (mainSite) mainSite.style.display = 'none';
-            }
-            
-            // Event-Listener für Popup-Buttons
-            if (acceptBtn) {
-                acceptBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    handleAccept();
-                });
-            }
-            if (declineBtn) {
-                declineBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    handleDecline();
-                });
-            }
-            
-            // Button oben rechts
-            var topBtn = document.getElementById('cookie-settings-top');
-            if (topBtn) {
-                topBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    resetAndReload();
-                });
-            }
-        })();
-        </script>
-    </body>
+            <p style="margin-top: 1rem; text-align: center;">Besuchen Sie auch unsere Partner-Infos: <a href="https://baumannhonigseiten.unaux.com" target="_blank" rel="noopener">Baumann's Honig Seiten</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BIO Honig Baumann – Alle Rechte vorbehalten | <a href="datenschutz.html">Datenschutz</a> | <a href="impressum.html">Impressum</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Bio-Imkerei aus Hartkirchen, Oberösterreich</p>
+    </footer>
+</div>
+
+<!-- Einfacher DSGVO-Cookie-Hinweis (nur notwendig, keine Tracking-Skripte) -->
+<div id="cookie-banner" class="cookie-banner">
+    <span>🍪 Diese Website verwendet nur technisch notwendige Cookies. Es werden keine Analyse- oder Tracking-Dienste eingesetzt.</span>
+    <button id="accept-cookies">OK, verstanden</button>
+</div>
+<script>
+    (function() {
+        // Prüfen, ob der Benutzer bereits zugestimmt hat
+        if (localStorage.getItem('cookie_consent_simple') === 'true') {
+            document.getElementById('cookie-banner').classList.add('hidden');
+        }
+        document.getElementById('accept-cookies').addEventListener('click', function() {
+            localStorage.setItem('cookie_consent_simple', 'true');
+            document.getElementById('cookie-banner').classList.add('hidden');
+        });
+    })();
+</script>
+</body>
 </html>
