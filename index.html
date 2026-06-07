@@ -680,25 +680,36 @@
             document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         }
         
-        // Logging der Entscheidung an Server (PHP) und localStorage (Fallback)
+        // ---------- Logging der Entscheidung an externen Server (unaux.com) ----------
         function logCookieDecision(decision) {
             var timestamp = new Date().toISOString();
             var userAgent = navigator.userAgent;
             
+            // Sende die Entscheidung an den unaux.com-Server
             if (typeof fetch !== 'undefined') {
-                fetch('/log-cookie-decision.php', {
+                fetch('https://baumannbiohonig.unaux.com/log-cookie-decision.php', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: 'decision=' + encodeURIComponent(decision) + '&timestamp=' + encodeURIComponent(timestamp) + '&useragent=' + encodeURIComponent(userAgent)
+                    headers: { 
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'decision=' + encodeURIComponent(decision) + 
+                          '&timestamp=' + encodeURIComponent(timestamp) + 
+                          '&useragent=' + encodeURIComponent(userAgent)
                 }).catch(function(err) {
-                    console.log('Logging nicht möglich (Server-Script nicht vorhanden):', err);
+                    console.log('Logging nicht möglich (Server nicht erreichbar):', err);
+                    // Fallback: lokaler Speicher
+                    try {
+                        var existingLogs = localStorage.getItem('cookie_decision_logs') || '';
+                        localStorage.setItem('cookie_decision_logs', existingLogs + timestamp + " | Decision: " + decision + " | User-Agent: " + userAgent + "\n");
+                    } catch(e) {}
                 });
+            } else {
+                // Fallback: lokaler Speicher
+                try {
+                    var existingLogs = localStorage.getItem('cookie_decision_logs') || '';
+                    localStorage.setItem('cookie_decision_logs', existingLogs + timestamp + " | Decision: " + decision + " | User-Agent: " + userAgent + "\n");
+                } catch(e) {}
             }
-            // Fallback: lokaler Speicher (für GitHub Pages, da kein PHP)
-            try {
-                var existingLogs = localStorage.getItem('cookie_decision_logs') || '';
-                localStorage.setItem('cookie_decision_logs', existingLogs + timestamp + " | Decision: " + decision + " | User-Agent: " + userAgent + "\n");
-            } catch(e) {}
         }
         
         // ---------- Tracking dynamisch laden (Plausible) ----------
@@ -716,88 +727,4 @@
         var popup = document.getElementById('cookie-popup');
         var mainSite = document.getElementById('main-site');
         var acceptBtn = document.getElementById('accept-cookies');
-        var declineBtn = document.getElementById('decline-cookies');
-        
-        function showMainSite() {
-            if (popup) popup.style.display = 'none';
-            if (mainSite) mainSite.style.display = 'block';
-        }
-        
-        function handleAccept() {
-            setCookie('cookie_consent', 'accepted', 365);
-            deleteCookie('cookie_consent_declined');
-            logCookieDecision('accepted');
-            showMainSite();
-            loadPlausible();  // Tracking erst jetzt laden
-        }
-        
-        function handleDecline() {
-            setCookie('cookie_consent_declined', 'true', 365);
-            deleteCookie('cookie_consent');
-            logCookieDecision('declined');
-            showMainSite();
-            // Kein Tracking wird geladen
-        }
-        
-        function resetAndReload() {
-            deleteCookie('cookie_consent');
-            deleteCookie('cookie_consent_declined');
-            location.reload();
-        }
-        
-        // Prüfe bereits getroffene Entscheidung
-        var accepted = getCookie('cookie_consent');
-        var declined = getCookie('cookie_consent_declined');
-        
-        if (accepted === 'accepted') {
-            showMainSite();
-            loadPlausible();
-        } else if (declined === 'true') {
-            showMainSite();
-            // Kein Tracking
-        } else {
-            if (popup) popup.style.display = 'flex';
-            if (mainSite) mainSite.style.display = 'none';
-        }
-        
-        // Event-Listener für Popup-Buttons
-        if (acceptBtn) {
-            acceptBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                handleAccept();
-            });
-        }
-        if (declineBtn) {
-            declineBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                handleDecline();
-            });
-        }
-        
-        // Button oben rechts
-        var topBtn = document.getElementById('cookie-settings-top');
-        if (topBtn) {
-            topBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                resetAndReload();
-            });
-        }
-    })();
-</script>
-
-<script>
-    // Einfaches mobiles Menü
-    const toggleBtn = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-links');
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
-    }
-</script>
-
-<!-- Hinweis: Für die serverseitige Protokollierung in einer .log-Datei wäre PHP erforderlich.
-     Auf GitHub Pages wird nur der localStorage-Fallback verwendet.
-     Bei Bedarf können Sie die Logging-Funktion anpassen oder auf ein externes Backend umleiten. -->
-</body>
-</html>
+        var declineBtn = document.getElementById
