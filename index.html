@@ -682,34 +682,38 @@
         
         // ---------- Logging der Entscheidung an externen Server (unaux.com) ----------
         function logCookieDecision(decision) {
-            var timestamp = new Date().toISOString();
-            var userAgent = navigator.userAgent;
-            
-            // Sende die Entscheidung an den unaux.com-Server
-            if (typeof fetch !== 'undefined') {
-                fetch('https://baumannbiohonig.unaux.com/log-cookie-decision.php', {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                    body: 'decision=' + encodeURIComponent(decision) + 
-                          '&timestamp=' + encodeURIComponent(timestamp) + 
-                          '&useragent=' + encodeURIComponent(userAgent)
-                }).catch(function(err) {
-                    console.log('Logging nicht möglich (Server nicht erreichbar):', err);
-                    // Fallback: lokaler Speicher
-                    try {
-                        var existingLogs = localStorage.getItem('cookie_decision_logs') || '';
-                        localStorage.setItem('cookie_decision_logs', existingLogs + timestamp + " | Decision: " + decision + " | User-Agent: " + userAgent + "\n");
-                    } catch(e) {}
-                });
-            } else {
-                // Fallback: lokaler Speicher
-                try {
-                    var existingLogs = localStorage.getItem('cookie_decision_logs') || '';
-                    localStorage.setItem('cookie_decision_logs', existingLogs + timestamp + " | Decision: " + decision + " | User-Agent: " + userAgent + "\n");
-                } catch(e) {}
-            }
+    const timestamp = new Date().toISOString();
+    const userAgent = navigator.userAgent;
+
+    // Versuche, zum externen Server zu senden (falls vorhanden)
+    if (typeof fetch !== 'undefined') {
+        fetch('https://baumannbiohonig.unaux.com/log-cookie-decision.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `decision=${encodeURIComponent(decision)}&timestamp=${encodeURIComponent(timestamp)}&useragent=${encodeURIComponent(userAgent)}`
+        })
+        .then(response => {
+            if (response.ok) console.log('✅ Log erfolgreich an externen Server gesendet.');
+            else console.warn('⚠️ Externer Server antwortete mit Fehler:', response.status);
+        })
+        .catch(err => {
+            console.warn('❌ CORS-Fehler oder Server nicht erreichbar:', err);
+            // Fallback in localStorage
+            storeInLocalStorage(decision, timestamp, userAgent);
+        });
+    } else {
+        storeInLocalStorage(decision, timestamp, userAgent);
+    }
+}
+
+function storeInLocalStorage(decision, timestamp, userAgent) {
+    try {
+        const logEntry = `${timestamp} | Decision: ${decision} | UA: ${userAgent}\n`;
+        const existing = localStorage.getItem('cookie_decision_logs') || '';
+        localStorage.setItem('cookie_decision_logs', existing + logEntry);
+        console.log('📁 Log lokal in localStorage gespeichert.');
+    } catch(e) {}
+}
         }
         
         // ---------- Tracking dynamisch laden (Plausible) ----------
