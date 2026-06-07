@@ -660,7 +660,7 @@
 
 <script>
     (function() {
-        // ---------- Hilfsfunktionen ----------
+        // ---------- Hilfsfunktionen Cookies ----------
         function setCookie(name, value, days) {
             var date = new Date();
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -680,55 +680,127 @@
             document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         }
         
-        // ---------- Logging der Entscheidung an externen Server (unaux.com) ----------
+        // ---------- Logging (asynchron, blockiert nichts) ----------
         function logCookieDecision(decision) {
-    const timestamp = new Date().toISOString();
-    const userAgent = navigator.userAgent;
-
-    // Versuche, zum externen Server zu senden (falls vorhanden)
-    if (typeof fetch !== 'undefined') {
-        fetch('https://baumannbiohonig.unaux.com/log-cookie-decision.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `decision=${encodeURIComponent(decision)}&timestamp=${encodeURIComponent(timestamp)}&useragent=${encodeURIComponent(userAgent)}`
-        })
-        .then(response => {
-            if (response.ok) console.log('✅ Log erfolgreich an externen Server gesendet.');
-            else console.warn('⚠️ Externer Server antwortete mit Fehler:', response.status);
-        })
-        .catch(err => {
-            console.warn('❌ CORS-Fehler oder Server nicht erreichbar:', err);
-            // Fallback in localStorage
-            storeInLocalStorage(decision, timestamp, userAgent);
-        });
-    } else {
-        storeInLocalStorage(decision, timestamp, userAgent);
-    }
-}
-
-function storeInLocalStorage(decision, timestamp, userAgent) {
-    try {
-        const logEntry = `${timestamp} | Decision: ${decision} | UA: ${userAgent}\n`;
-        const existing = localStorage.getItem('cookie_decision_logs') || '';
-        localStorage.setItem('cookie_decision_logs', existing + logEntry);
-        console.log('📁 Log lokal in localStorage gespeichert.');
-    } catch(e) {}
-}
+            var timestamp = new Date().toISOString();
+            var userAgent = navigator.userAgent;
+            
+            // Versuche fetch, aber mit Timeout, um nicht zu blockieren
+            if (typeof fetch !== 'undefined') {
+                var controller = new AbortController();
+                var timeoutId = setTimeout(() => controller.abort(), 3000); // 3 Sekunden Timeout
+                
+                fetch('https://baumannbiohonig.unaux.com/log-cookie-decision.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: 'decision=' + encodeURIComponent(decision) + 
+                          '&timestamp=' + encodeURIComponent(timestamp) + 
+                          '&useragent=' + encodeURIComponent(userAgent),
+                    signal: controller.signal
+                })
+                .then(function(response) {
+                    clearTimeout(timeoutId);
+                    if (response.ok) {
+                        console.log('Logging erfolgreich');
+                    } else {
+                        console.warn('Server antwortete mit Fehler:', response.status);
+                        storeLocal(decision, timestamp, userAgent);
+                    }
+                })
+                .catch(function(err) {
+                    clearTimeout(timeoutId);
+                    console.warn('Logging fehlgeschlagen:', err);
+                    storeLocal(decision, timestamp, userAgent);
+                });
+            } else {
+                storeLocal(decision, timestamp, userAgent);
+            }
+            
+            function storeLocal(decision, timestamp, userAgent) {
+                try {
+                    var existingLogs = localStorage.getItem('cookie_decision_logs') || '';
+                    localStorage.setItem('cookie_decision_logs', existingLogs + timestamp + " | Decision: " + decision + " | User-Agent: " + userAgent + "\n");
+                    console.log('Log lokal gespeichert');
+                } catch(e) {}
+            }
         }
         
-        // ---------- Tracking dynamisch laden (Plausible) ----------
+        // ---------- Tracking laden ----------
         function loadPlausible() {
-            var plausibleScript = document.createElement('script');
-            plausibleScript.src = 'https://plausible.io/js/script.manual.js';
-            plausibleScript.setAttribute('data-domain', 'baumannhonig.github.io');
-            plausibleScript.defer = true;
-            document.head.appendChild(plausibleScript);
+            var script = document.createElement('script');
+            script.src = 'https://plausible.io/js/script.manual.js';
+            script.setAttribute('data-domain', 'baumannhonig.github.io');
+            script.defer = true;
+            document.head.appendChild(script);
             window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments); };
-            console.log('Plausible Analytics geladen (nach Einwilligung).');
         }
         
-        // ---------- UI-Funktionen ----------
+        // ---------- UI ----------
         var popup = document.getElementById('cookie-popup');
         var mainSite = document.getElementById('main-site');
         var acceptBtn = document.getElementById('accept-cookies');
-        var declineBtn = document.getElementById
+        var declineBtn = document.getElementById('decline-cookies');
+        
+        function showMainSite() {
+            if (popup) popup.style.display = 'none';
+            if (mainSite) mainSite.style.display = 'block';
+        }
+        
+        function handleAccept() {
+            setCookie('cookie_consent', 'accepted', 365);
+            deleteCookie('cookie_consent_declined');
+            logCookieDecision('accepted');
+            showMainSite();
+            loadPlausible();
+        }
+        
+        function handleDecline() {
+            setCookie('cookie_consent_declined', 'true', 365);
+            deleteCookie('cookie_consent');
+            logCookieDecision('declined');
+            showMainSite();
+            // kein Tracking
+        }
+        
+        function resetAndReload() {
+            deleteCookie('cookie_consent');
+            deleteCookie('cookie_consent_declined');
+            location.reload();
+        }
+        
+        // Prüfe bestehende Einwilligung
+        var accepted = getCookie('cookie_consent');
+        var declined = getCookie('cookie_consent_declined');
+        
+        if (accepted === 'accepted') {
+            showMainSite();
+            loadPlausible();
+        } else if (declined === 'true') {
+            showMainSite();
+        } else {
+            if (popup) popup.style.display = 'flex';
+            if (mainSite) mainSite.style.display = 'none';
+        }
+        
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                handleAccept();
+            });
+        }
+        if (declineBtn) {
+            declineBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                handleDecline();
+            });
+        }
+        
+        var topBtn = document.getElementById('cookie-settings-top');
+        if (topBtn) {
+            topBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                resetAndReload();
+            });
+        }
+    })();
+</script>
