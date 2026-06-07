@@ -256,6 +256,20 @@
             background: #e6d5b8;
         }
     </style>
+    <script>
+  (function() {
+    // Den 'path' Parameter aus der URL auslesen (gesetzt von 404.html)
+    var urlParams = new URLSearchParams(window.location.search);
+    var path = urlParams.get('path');
+    if (path) {
+      // Den Parameter aus der URL entfernen, damit die Adresse sauber bleibt
+      var newUrl = path + window.location.hash;
+      // Die Browser-History ersetzen, ohne die Seite neu zu laden
+      window.history.replaceState({}, document.title, newUrl);
+    }
+    // Hier können Sie Ihren bestehenden Router-Code aufrufen, oder die Seite normal laden lassen
+  })();
+</script>
 </head>
 <body>
 
