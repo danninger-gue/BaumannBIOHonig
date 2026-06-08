@@ -1,0 +1,17 @@
+/* TEAM */
+    Imker & Inhaber: Bernhard Baumann
+    Unterstützung: Günther Danninger
+    Kontakt: baumann.bernhard@gmx.net
+
+/* SITE */
+    Letzte Aktualisierung: 2026-01-15
+    Technologie: HTML5, CSS3, JavaScript
+    DSGVO-konform: Ja (keine dauerhaften Cookies, Einwilligung über sessionStorage)
+
+/* STANDORT */
+    Staudachstraße 1, 4081 Hartkirchen, Österreich
+
+/* THANKS */
+    Bienen – für ihren unermüdlichen Einsatz
+    JouwWeb – für das ursprüngliche Design
+    GitHub Pages – für das Hosting
