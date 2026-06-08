@@ -1,1 +1,387 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Bio Honig Baumann – regionale Bio-Imkerei aus Hartkirchen in Oberösterreich. Blütenhonig, Waldhonig und weitere Bienenprodukte direkt vom Imker.">
+    <meta name="keywords" content="Bio Honig, Imkerei Hartkirchen, Blütenhonig, Waldhonig, Oberösterreich, regionaler Honig">
+    <meta name="author" content="BIO Honig Baumann">
+    <link rel="canonical" href="https://baumannhonig.github.io/BaumannBIOHonig/">
+    <meta property="og:title" content="BIO Honig Baumann">
+    <meta property="og:url" content="https://baumannhonig.github.io/BaumannBIOHonig/">
+    <meta property="og:image" content="https://primary.jwwb.nl/pexels/52/5247993.jpeg?enable-io=true&enable=upscale&fit=bounds&width=1200">
+    <meta property="og:description" content="Bio Honig Baumann – regionale Bio-Imkerei aus Hartkirchen in Oberösterreich.">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Bio Honig Baumann – Imkerei aus Hartkirchen | Bio Blütenhonig & Waldhonig</title>
+    <!-- KEINE Google Fonts mehr – DSGVO-konforme System-Schriften -->
+    
+    <style>
+        /* ========== GRUNDLAGEN ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Fallback-Schriften ohne externe Anfragen */
+        body { font-family: 'Lato', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; color: #333; background-color: #fff; line-height: 1.5; }
+        h1, h2, h3, h4, .site-title, .nav-links a { font-family: 'Merriweather', 'Georgia', 'Times New Roman', serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
+        /* ========== HEADER & NAVIGATION ========== */
+        .site-header { background-color: #fff; border-bottom: 1px solid #eee; padding: 20px 0; position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo-img { width: 60px; height: 60px; object-fit: contain; }
+        .site-title { font-size: 1.5rem; font-weight: 700; color: #2c5e2e; text-decoration: none; }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 600; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links .active { color: #2c5e2e; border-bottom: 2px solid #2c5e2e; padding-bottom: 4px; }
+        .menu-toggle { display: none; font-size: 28px; background: none; border: none; cursor: pointer; color: #2c5e2e; }
+
+        /* ========== SECTIONS ========== */
+        .strip { padding: 60px 0; }
+        .strip-light { background-color: #f9f9f9; }
+        .strip-white { background-color: #fff; }
+        .text-center { text-align: center; }
+
+        /* ========== TYPOGRAPHIE ========== */
+        .heading-medium { font-size: 2rem; margin-bottom: 15px; color: #2c5e2e; }
+        .btn { display: inline-block; background-color: #2c5e2e; color: #fff; padding: 12px 30px; border-radius: 40px; text-decoration: none; font-weight: bold; transition: background 0.2s; border: none; cursor: pointer; }
+        .btn:hover { background-color: #1f4521; }
+
+        /* ========== LAYOUT ========== */
+        .two-columns { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 30px; }
+        .col { flex: 1; min-width: 250px; }
+        .product-image { width: 100%; border-radius: 12px; margin-bottom: 20px; object-fit: cover; aspect-ratio: 1 / 1; }
+        .landscape-image { aspect-ratio: 4 / 3; }
+        .spacer { height: 20px; }
+        .hero { background-image: url('https://primary.jwwb.nl/pexels/53/53444.jpeg?enable-io=true&enable=upscale'); background-size: cover; background-position: center 40%; text-align: center; padding: 100px 20px; color: white; position: relative; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); }
+        .hero h1 { position: relative; z-index: 1; font-size: 2.8rem; font-family: 'Merriweather', 'Georgia', serif; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } }
+        .product-grid { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px; }
+        .product-card { flex: 1; min-width: 200px; background: white; padding: 20px; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #eee; transition: transform 0.2s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .product-card h3 { font-family: 'Merriweather', 'Georgia', serif; color: #2c5e2e; margin-bottom: 10px; }
+        .testimonial-grid { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px; }
+        .testimonial { flex: 1; background: white; padding: 25px; border-radius: 16px; font-style: italic; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .contact-info { background-color: #f9f9f9; padding: 25px; border-radius: 12px; }
+        .map-placeholder { border-radius: 12px; overflow: hidden; height: 350px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; }
+        .map-placeholder iframe { width: 100%; height: 100%; border: 0; border-radius: 12px; }
+        hr { margin: 30px 0; border: 0; height: 1px; background: #e6d5b8; }
+
+        /* ========== FOOTER ========== */
+        .site-footer { background-color: #2c5e2e; color: #fff; text-align: center; padding: 30px 0; font-size: 0.9rem; margin-top: 40px; }
+        .site-footer a { color: #fff; text-decoration: underline; }
+
+        /* ========== COOKIE POPUP ========== */
+        #cookie-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 999999; display: flex; justify-content: center; align-items: center; font-family: 'Segoe UI', Arial, sans-serif; }
+        .cookie-container { background: white; max-width: 500px; width: 90%; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .cookie-header { background: #2c5e2e; padding: 25px; text-align: center; }
+        .cookie-header .cookie-icon { font-size: 50px; margin-bottom: 10px; }
+        .cookie-header h2 { color: white; font-size: 24px; margin: 0; }
+        .cookie-body { padding: 25px; color: #333; line-height: 1.6; }
+        .cookie-body p { margin-bottom: 15px; }
+        .cookie-buttons { display: flex; gap: 12px; margin-top: 25px; flex-wrap: wrap; }
+        .cookie-btn { flex: 1; padding: 12px 20px; font-size: 16px; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s; font-family: inherit; }
+        .btn-accept { background: #4CAF50; color: white; }
+        .btn-accept:hover { background: #45a049; }
+        .btn-decline { background: #888; color: white; }
+        .btn-decline:hover { background: #666; }
+        .cookie-footer { background: #f9f9f9; padding: 15px; text-align: center; font-size: 12px; border-top: 1px solid #eee; }
+        .cookie-footer a { color: #2c5e2e; text-decoration: none; margin: 0 5px; }
+        .cookie-footer a:hover { text-decoration: underline; }
+        #main-site { display: none; }
+        .cookie-settings-top-btn { position: fixed; top: 15px; right: 20px; z-index: 10000; background-color: rgba(44,94,46,0.8); backdrop-filter: blur(4px); color: white; border-radius: 40px; padding: 5px 12px; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+        .cookie-settings-top-btn:hover { background-color: #1f4521; }
+        @media (max-width: 768px) { .menu-toggle { display: block; } .nav-links { display: none; flex-direction: column; width: 100%; background: #fff; padding: 20px 0; text-align: center; gap: 15px; } .nav-links.show { display: flex; } .two-columns, .product-grid, .testimonial-grid { flex-direction: column; } .cookie-settings-top-btn { top: 8px; right: 10px; padding: 3px 8px; font-size: 10px; } }
+    </style>
+    
+    <script>
+        (function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var path = urlParams.get('path');
+            if (path) {
+                var newUrl = path + window.location.hash;
+                window.history.replaceState({}, document.title, newUrl);
+            }
+        })();
+    </script>
+</head>
+<body>
+
+<div id="cookie-settings-top" class="cookie-settings-top-btn">🍪 Cookie-Einstellungen</div>
+
+<div id="cookie-popup">
+    <div class="cookie-container">
+        <div class="cookie-header">
+            <div class="cookie-icon">🍪</div>
+            <h2>Cookie Hinweis (DSGVO)</h2>
+        </div>
+        <div class="cookie-body">
+            <p>Diese Website verwendet technisch notwendige Cookies, um Ihre Einwilligung zu speichern. Mit Ihrer Einwilligung werden zusätzlich folgende Dienste aktiviert:</p>
+            <ul>
+                <li><strong>Plausible Analytics</strong> – datensparsame Analyse ohne personenbezogene Daten</li>
+                <li><strong>Google Maps</strong> – zur Darstellung unserer Lage</li>
+            </ul>
+            <p>Sie können Ihre Entscheidung jederzeit über den Button "Cookie-Einstellungen" oben rechts ändern.</p>
+            <p><strong>Hinweis:</strong> Ihre getroffene Entscheidung wird ausschließlich in einem Cookie auf Ihrem Gerät gespeichert (keine Server-Logdatei).</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="cookie-btn btn-accept">✅ Alle akzeptieren</button>
+                <button id="decline-cookies" class="cookie-btn btn-decline">❌ Nur notwendige</button>
+            </div>
+        </div>
+        <div class="cookie-footer">
+            <a href="datenschutz.html">Mehr zum Datenschutz</a> | 
+            <a href="impressum.html">Impressum</a>
+        </div>
+    </div>
+</div>
+
+<div id="main-site">
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo-area">
+                <img class="logo-img" src="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&height=70" alt="BIO Honig Baumann Logo">
+                <a href="index.html" class="site-title">BIO Honig Baumann</a>
+            </div>
+            <button class="menu-toggle" aria-label="Menü">☰</button>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="ueber-uns.html">Über uns</a></li>
+                <li><a href="unser-honigsortiment.html">Unser Honigsortiment</a></li>
+                <li><a href="produkte.html">Produkte</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+                <li><a href="datenschutz.html">Datenschutz</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero"><h1>Willkommen bei Baumann BIO Honig</h1></div>
+
+        <section class="strip strip-white">
+            <div class="container">
+                <div class="two-columns">
+                    <div class="col">
+                        <h2 class="heading-medium">Unsere Philosophie</h2>
+                        <p>Bei BIO Honig Baumann steht die Natur im Mittelpunkt. Wir bewirtschaften unsere Bienenvölker nach strengen biologischen Richtlinien in der malerischen Region des oberen Donautals in Oberösterreich. Unser Engagement gilt dem Schutz der Bienen und der Gewinnung von Honig höchster Güte, der die Reinheit unserer Umwelt widerspiegelt.</p>
+                    </div>
+                    <div class="col">
+                        <img class="product-image landscape-image" src="https://primary.jwwb.nl/pexels/52/5247993.jpeg?enable-io=true&enable=upscale&crop=1.3333:1&width=800" alt="Imkerei vor blühender Wiese">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="strip strip-light">
+            <div class="container">
+                <div class="two-columns">
+                    <div class="col">
+                        <img class="product-image landscape-image" src="https://primary.jwwb.nl/pexels/53/5336243.jpeg?enable-io=true&enable=upscale&crop=1.3333:1&width=800" alt="Bienen auf Wabe">
+                    </div>
+                    <div class="col">
+                        <h2 class="heading-medium">Unsere biologische Imkerei</h2>
+                        <p>Wir glauben an nachhaltige Imkerei und die Bewahrung der natürlichen Lebensräume für unsere Bienen. Durch den Verzicht auf Chemikalien und den Einsatz naturbelassener Methoden stellen wir sicher, dass unser Honig nicht nur köstlich, sondern auch rein und gesund ist. Erfahren Sie mehr über unsere Arbeitsweise.</p>
+                        <div class="spacer"></div>
+                        <a href="ueber-uns.html" class="btn">Mehr über uns erfahren</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="strip strip-white">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="heading-medium">Unser vielfältiges Bio-Honigsortiment</h2>
+                    <p>Entdecken Sie unsere handverlesenen Bio-Produkte – rein, natürlich und voller Geschmack.</p>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card"><h3>Bio Blütenhonig</h3><p>Ein milder, heller Bio-Honig mit zartem Blütenaroma, gesammelt aus der Umgebung des Eferdinger Hügellands. Ideal für den Start in den Tag.</p><p><strong>€ 9,00</strong> (500g)</p></div>
+                    <div class="product-card"><h3>Bio Waldhonig</h3><p>Ein kräftiger Bio-Honig mit herb-würzigen Noten, gesammelt in den Wäldern rund um unsere Imkerei. Perfekt zu Käse oder im Tee.</p><p><strong>€ 10,00</strong> (500g)</p></div>
+                    <div class="product-card"><h3>Bio Honig mit Blütenpollen</h3><p>Unser cremiger Honig angereichert mit Blütenpollen – eine natürliche Quelle für Vitamine und Mineralien.</p><p><strong>€ 11,50</strong> (250g)</p></div>
+                    <div class="product-card"><h3>Bio Propolis-Tinktur</h3><p>Hochwertige Tinktur aus dem wertvollen Kittharz der Bienen, zur äußeren und inneren Anwendung.</p><p><strong>€ 11,00</strong> (30ml)</p></div>
+                    <div class="product-card"><h3>Bio Blütenpollen pur</h3><p>Reiner BIO Blütenpollen, eine wertvolle Ergänzung für Müsli, Joghurt oder Smoothies.</p><p><strong>€ 10,00</strong> (100g)</p></div>
+                </div>
+                <div class="text-center spacer"><a href="produkte.html" class="btn">Alle Produkte entdecken</a></div>
+            </div>
+        </section>
+
+        <section class="strip strip-light">
+            <div class="container">
+                <div class="text-center"><h2 class="heading-medium">Das sagen unsere Kunden</h2></div>
+                <div class="testimonial-grid">
+                    <div class="testimonial">„Der Honig von BIO Honig Baumann ist einfach unvergleichlich! Man schmeckt die Liebe zur Natur in jedem Tropfen. Ein Muss für jeden Honigliebhaber!“<br><strong>– Maria S. aus Linz</strong></div>
+                    <div class="testimonial">„Ich schätze die biologische Qualität und die Nachhaltigkeit, die BIO Honig Baumann lebt. Der Honig ist nicht nur köstlich, sondern auch ein Beitrag zum Umweltschutz.“<br><strong>– Markus F. aus Wels</strong></div>
+                    <div class="testimonial">„Endlich ein Honig, der wirklich nach Honig schmeckt! Die Sortenvielfalt ist beeindruckend und jede einzelne ein Genuss. Ich bin Stammkunde geworden.“<br><strong>– Anna K. aus Wels</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="strip strip-white">
+            <div class="container">
+                <div class="two-columns">
+                    <div class="col contact-info">
+                        <h2 class="heading-medium">Kontaktieren Sie uns</h2>
+                        <p><strong>Unsere Öffnungszeiten</strong><br>Montag bis Samstag: 08:00 – 18:00 Uhr<br>Sonntag und Feiertage: auf Anruf</p>
+                        <p><strong>Tel.:</strong> <a href="tel:+436607579524">+43 660 7579524</a></p>
+                        <p><strong>E-Mail:</strong> <a href="mailto:baumann.bernhard@gmx.net">baumann.bernhard@gmx.net</a></p>
+                        <p><strong>Adresse:</strong> Staudachstraße 1, 4081 Hartkirchen, Österreich</p>
+                        <a class="btn" href="https://maps.google.com/?q=Staudachstraße+1+4081+Hartkirchen" target="_blank" rel="noopener">Route anzeigen (Google Maps – externe Seite)</a>
+                    </div>
+                    <div class="col">
+                        <!-- DSGVO-konformer Google Maps Platzhalter -->
+                        <div id="google-maps-container" class="map-placeholder">
+                            <div id="maps-placeholder" style="padding: 20px; text-align: center;">
+                                <p>🗺️ Kartenmaterial von Google Maps</p>
+                                <p style="font-size: 14px;">Bitte akzeptieren Sie Cookies, um die Karte anzuzeigen.</p>
+                                <button id="load-maps-consent" class="btn" style="margin-top: 10px;">Karte laden & Cookies akzeptieren</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <p class="text-center"><strong>Besuchen Sie auch unsere Partnerseite:</strong> <a href="https://baumannhonigseiten.unaux.com" target="_blank" rel="noopener">Baumann's Honig Seiten</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 BIO Honig Baumann | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutzerklärung</a></p>
+            <p>Mit Unterstützung von Günther Danninger</p>
+        </div>
+    </footer>
+</div>
+
+<script>
+    (function() {
+        // --- Cookie-Funktionen (nur notwendig) ---
+        function setCookie(name, value, days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = name + "=" + value + "; expires=" + date.toUTCString() + "; path=/; SameSite=Lax";
+        }
+        
+        function getCookie(name) {
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name + "=") === 0) return c.substring(name.length + 1);
+            }
+            return null;
+        }
+        
+        function deleteCookie(name) {
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+        
+        // --- Dienste nur nach Consent laden ---
+        var plausibleLoaded = false;
+        var mapsLoaded = false;
+        
+        function loadPlausible() {
+            if (plausibleLoaded) return;
+            var script = document.createElement('script');
+            script.src = 'https://plausible.io/js/script.manual.js';
+            script.setAttribute('data-domain', 'baumannhonig.github.io');
+            script.defer = true;
+            document.head.appendChild(script);
+            window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments); };
+            plausibleLoaded = true;
+        }
+        
+        function loadGoogleMaps() {
+            if (mapsLoaded) return;
+            var container = document.getElementById('google-maps-container');
+            if (!container) return;
+            // Iframe dynamisch einfügen
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2665.264693607701!2d13.9984012!3d48.3600839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47745d2e7e7e7e7%3A0x123456789abcdef!2sStaudachstra%C3%9Fe%201%2C%204081%20Hartkirchen!5e0!3m2!1sde!2sat!4v1690000000000!5m2!1sde!2sat';
+            iframe.allowFullscreen = true;
+            iframe.loading = "lazy";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "0";
+            iframe.style.borderRadius = "12px";
+            container.innerHTML = '';
+            container.appendChild(iframe);
+            mapsLoaded = true;
+        }
+        
+        // --- UI-Funktionen ---
+        var popup = document.getElementById('cookie-popup');
+        var mainSite = document.getElementById('main-site');
+        var acceptBtn = document.getElementById('accept-cookies');
+        var declineBtn = document.getElementById('decline-cookies');
+        var topBtn = document.getElementById('cookie-settings-top');
+        var loadMapsBtn = document.getElementById('load-maps-consent');
+        
+        function showMainSite() {
+            if (popup) popup.style.display = 'none';
+            if (mainSite) mainSite.style.display = 'block';
+        }
+        
+        function handleAccept() {
+            setCookie('cookie_consent', 'accepted', 365);
+            deleteCookie('cookie_consent_declined');
+            showMainSite();
+            loadPlausible();
+            loadGoogleMaps();
+        }
+        
+        function handleDecline() {
+            setCookie('cookie_consent_declined', 'true', 365);
+            deleteCookie('cookie_consent');
+            showMainSite();
+            // keine externen Dienste laden
+        }
+        
+        function resetAndReload() {
+            deleteCookie('cookie_consent');
+            deleteCookie('cookie_consent_declined');
+            location.reload();
+        }
+        
+        // Entscheidung prüfen
+        var accepted = getCookie('cookie_consent');
+        var declined = getCookie('cookie_consent_declined');
+        
+        if (accepted === 'accepted') {
+            showMainSite();
+            loadPlausible();
+            loadGoogleMaps();  // Karte wird nachgeladen
+        } else if (declined === 'true') {
+            showMainSite();
+            // keine externen Dienste
+        } else {
+            if (popup) popup.style.display = 'flex';
+            if (mainSite) mainSite.style.display = 'none';
+        }
+        
+        // Event-Listener
+        if (acceptBtn) acceptBtn.addEventListener('click', function(e) { e.preventDefault(); handleAccept(); });
+        if (declineBtn) declineBtn.addEventListener('click', function(e) { e.preventDefault(); handleDecline(); });
+        if (topBtn) topBtn.addEventListener('click', function(e) { e.preventDefault(); resetAndReload(); });
+        
+        // Optional: Button im Karten-Platzhalter löst sofortige Zustimmung aus
+        if (loadMapsBtn) {
+            loadMapsBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (getCookie('cookie_consent') !== 'accepted') {
+                    handleAccept();  // nimmt alle an und lädt Karte + Plausible
+                } else {
+                    loadGoogleMaps(); // falls schon zugestimmt aber Karte fehlt
+                }
+            });
+        }
+        
+        // Mobile Menü Toggle
+        var toggleBtn = document.querySelector('.menu-toggle');
+        var navMenu = document.querySelector('.nav-links');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('show');
+            });
+        }
+    })();
+</script>
+</body>
+</html>
