@@ -13,8 +13,14 @@
     <meta property="og:description" content="BIO Honig Baumann – regionale Bio-Imkerei aus Hartkirchen. Lernen Sie unsere Werte, unsere Bienen und unsere Philosophie kennen.">
     <meta name="twitter:card" content="summary_large_image">
     <title>Über uns | BIO Honig Baumann – Unsere Geschichte & Werte</title>
-    <!-- Schriftarten (wie im Original) -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;400italic;700italic&family=Merriweather:wght@400;700;400italic;700italic&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts (zuerst deaktiviert) -->
+    <link id="google-fonts-link" rel="stylesheet" disabled href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;400italic;700italic&family=Merriweather:wght@400;700;400italic;700italic&display=swap">
+    
+    <!-- Plausible (zuerst deaktiviert) -->
+    <script id="plausible-script" data-domain="baumannhonig.github.io" src="https://plausible.io/js/script.manual.js" defer></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>
+    
     <style>
         * {
             margin: 0;
@@ -224,6 +230,16 @@
             flex: 1;
             min-height: 300px;
         }
+        #google-maps-placeholder {
+            min-height: 300px;
+            background: #f0f0f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
         .map iframe {
             width: 100%;
             height: 100%;
@@ -266,120 +282,381 @@
                 font-size: 2rem;
             }
         }
+        
+        /* Cookie Popup CSS (identisch mit index.html) */
+        #cookie-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 999999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .cookie-container {
+            background: white;
+            max-width: 500px;
+            width: 90%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .cookie-header {
+            background: #f5a623;
+            padding: 25px;
+            text-align: center;
+        }
+        .cookie-header .cookie-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        .cookie-header h2 {
+            color: white;
+            font-size: 24px;
+            margin: 0;
+        }
+        .cookie-body {
+            padding: 25px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .cookie-body p {
+            margin-bottom: 15px;
+        }
+        .cookie-body ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .cookie-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .cookie-btn {
+            flex: 1;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .btn-accept {
+            background: #4CAF50;
+            color: white;
+        }
+        .btn-accept:hover {
+            background: #45a049;
+        }
+        .btn-decline {
+            background: #888;
+            color: white;
+        }
+        .btn-decline:hover {
+            background: #666;
+        }
+        .cookie-footer {
+            background: #f9f9f9;
+            padding: 15px;
+            text-align: center;
+            font-size: 12px;
+            border-top: 1px solid #eee;
+        }
+        .cookie-footer a {
+            color: #f5a623;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .cookie-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        #main-site {
+            display: none;
+        }
+        
+        .cookie-settings-top-btn {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            z-index: 10000;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            color: #f5a623;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 40px;
+            padding: 5px 12px;
+            font-size: 12px;
+            font-weight: normal;
+            cursor: pointer;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .cookie-settings-top-btn:hover {
+            background-color: #f5a623;
+            color: #1a1a1a;
+            border-color: #f5a623;
+        }
+        @media (max-width: 768px) {
+            .cookie-settings-top-btn {
+                top: 8px;
+                right: 10px;
+                padding: 3px 8px;
+                font-size: 10px;
+            }
+        }
     </style>
 </head>
 <body>
-
-<header class="header">
-    <div class="header-inner">
-        <div class="logo-area">
-            <img class="logo" src="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&height=70" alt="BIO Honig Baumann Logo">
-            <a href="index.html" class="site-title">BIO Honig Baumann</a>
-        </div>
-        <button class="menu-toggle" aria-label="Menü">☰</button>
-        <nav class="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="ueber-uns.html" class="active">Über uns</a></li>
-                <li><a href="unser-honigsortiment.html">Unser Honigsortiment</a></li>
-                <li><a href="produkte.html">Produkte</a></li>
-                <li><a href="impressum.html">Impressum</a></li>
-                <li><a href="datenschutz.html">Datenschutz</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-<div class="page-header">
-    <h1>Unsere Geschichte</h1>
-    <p>Tauchen Sie ein in die Welt von BIO Honig Baumann. Erfahren Sie mehr über unsere Leidenschaft für Bienen, die Natur und die Herstellung von hochwertigem Bio-Honig direkt aus dem Eferdinger Hügelland. Hier beginnt unsere süße Reise.</p>
-</div>
-
-<!-- Sektion 1: Die Leidenschaft des Imkers (Bild links) -->
-<div class="section">
-    <div class="split-section">
-        <div class="split-image">
-            <img src="https://primary.jwwb.nl/pexels/93/9375077.jpeg?enable-io=true&width=800" alt="Imker Bernhard Baumann bei der Arbeit">
-        </div>
-        <div class="split-text">
-            <h2>Die Leidenschaft des Imkers</h2>
-            <p>Ich heiße Bernhard Baumann und habe die Imkerei von meinem Vater übernommen. Seit mehr als 7 Jahren arbeite ich als Imker und betreue mehrere Bienenvölker mit großer Hingabe. Die Imkerei ist für mich nicht nur ein Hobby, sondern eine echte Berufung. Es erfüllt mich mit Freude, meine Kunden mit hochwertigem BIO-Honig aus dem Eferdinger Hügelland beliefern zu dürfen.</p>
-            <a href="unser-honigsortiment.html" class="btn">Entdecken Sie unseren Honig</a>
+    <div id="cookie-settings-top" class="cookie-settings-top-btn" style="display: none;">🍪 Cookie-Einstellungen</div>
+    
+    <div id="cookie-popup">
+        <div class="cookie-container">
+            <div class="cookie-header">
+                <div class="cookie-icon">🍪</div>
+                <h2>Hinweis zum Datenschutz (DSGVO)</h2>
+            </div>
+            <div class="cookie-body">
+                <p>Diese Website verwendet <strong>keine dauerhaften Cookies</strong>. Ihre Einwilligung wird nur für die Dauer Ihrer aktuellen Sitzung gespeichert.</p>
+                <p>Mit Ihrer Einwilligung werden folgende optionale Dienste aktiviert:</p>
+                <ul>
+                    <li><strong>Google Fonts</strong> – für optimierte Schriftdarstellung</li>
+                    <li><strong>Plausible Analytics</strong> – datensparsame, anonyme Besucheranalyse (keine personenbezogenen Daten)</li>
+                    <li><strong>Google Maps</strong> – zur Darstellung unseres Standorts</li>
+                </ul>
+                <p>Sie können Ihre Entscheidung jederzeit über den Button oben rechts ändern.</p>
+                <div class="cookie-buttons">
+                    <button id="accept-cookies" class="cookie-btn btn-accept">✅ Alle akzeptieren</button>
+                    <button id="decline-cookies" class="cookie-btn btn-decline">❌ Nur notwendige</button>
+                </div>
+            </div>
+            <div class="cookie-footer">
+                <a href="datenschutz.html">Mehr zum Datenschutz</a> | 
+                <a href="impressum.html">Impressum</a>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Sektion 2: Werte (Bild rechts) -->
-<div class="section section-alt">
-    <div class="split-section">
-        <div class="split-text">
-            <h2>Unsere Werte: Tierwohl und Nachhaltigkeit</h2>
-            <p>Bei der BIO-Imkerei und der Produktion unseres BIO-Honigs stehen das Tierwohl, die Naturbelassenheit des Produkts und ökologische Nachhaltigkeit im Vordergrund. Wir halten uns an Richtlinien, die oft strenger sind als die EU-Bio-Verordnung. Unser Ziel ist es, gesunde Bienen zu fördern und einen reinen Honig ohne schädliche Rückstände zu garantieren. So stellen wir sicher, dass Sie ein Produkt von höchster Qualität erhalten, das im Einklang mit der Natur produziert wird.</p>
-            <a href="unser-honigsortiment.html" class="btn">Mehr erfahren</a>
+    <!-- Hauptseite – zuerst ausgeblendet, bis Entscheidung getroffen -->
+    <div id="main-site">
+        <header class="header">
+            <div class="header-inner">
+                <div class="logo-area">
+                    <img class="logo" src="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&height=70" alt="BIO Honig Baumann Logo">
+                    <a href="index.html" class="site-title">BIO Honig Baumann</a>
+                </div>
+                <button class="menu-toggle" aria-label="Menü">☰</button>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="ueber-uns.html" class="active">Über uns</a></li>
+                        <li><a href="unser-honigsortiment.html">Unser Honigsortiment</a></li>
+                        <li><a href="produkte.html">Produkte</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="page-header">
+            <h1>Unsere Geschichte</h1>
+            <p>Tauchen Sie ein in die Welt von BIO Honig Baumann. Erfahren Sie mehr über unsere Leidenschaft für Bienen, die Natur und die Herstellung von hochwertigem Bio-Honig direkt aus dem Eferdinger Hügelland. Hier beginnt unsere süße Reise.</p>
         </div>
-        <div class="split-image">
-            <img src="https://primary.jwwb.nl/pexels/84/845921.jpeg?enable-io=true&width=800" alt="Bienenwabe mit Honig">
+
+        <!-- Sektion 1: Die Leidenschaft des Imkers (Bild links) -->
+        <div class="section">
+            <div class="split-section">
+                <div class="split-image">
+                    <img src="https://primary.jwwb.nl/pexels/93/9375077.jpeg?enable-io=true&width=800" alt="Imker Bernhard Baumann bei der Arbeit">
+                </div>
+                <div class="split-text">
+                    <h2>Die Leidenschaft des Imkers</h2>
+                    <p>Ich heiße Bernhard Baumann und habe die Imkerei von meinem Vater übernommen. Seit mehr als 7 Jahren arbeite ich als Imker und betreue mehrere Bienenvölker mit großer Hingabe. Die Imkerei ist für mich nicht nur ein Hobby, sondern eine echte Berufung. Es erfüllt mich mit Freude, meine Kunden mit hochwertigem BIO-Honig aus dem Eferdinger Hügelland beliefern zu dürfen.</p>
+                    <a href="unser-honigsortiment.html" class="btn">Entdecken Sie unseren Honig</a>
+                </div>
+            </div>
         </div>
+
+        <!-- Sektion 2: Werte (Bild rechts) -->
+        <div class="section section-alt">
+            <div class="split-section">
+                <div class="split-text">
+                    <h2>Unsere Werte: Tierwohl und Nachhaltigkeit</h2>
+                    <p>Bei der BIO-Imkerei und der Produktion unseres BIO-Honigs stehen das Tierwohl, die Naturbelassenheit des Produkts und ökologische Nachhaltigkeit im Vordergrund. Wir halten uns an Richtlinien, die oft strenger sind als die EU-Bio-Verordnung. Unser Ziel ist es, gesunde Bienen zu fördern und einen reinen Honig ohne schädliche Rückstände zu garantieren. So stellen wir sicher, dass Sie ein Produkt von höchster Qualität erhalten, das im Einklang mit der Natur produziert wird.</p>
+                    <a href="unser-honigsortiment.html" class="btn">Mehr erfahren</a>
+                </div>
+                <div class="split-image">
+                    <img src="https://primary.jwwb.nl/pexels/84/845921.jpeg?enable-io=true&width=800" alt="Bienenwabe mit Honig">
+                </div>
+            </div>
+        </div>
+
+        <!-- Sektion 3: Zuhause der Bienen (Bild links) -->
+        <div class="section">
+            <div class="split-section">
+                <div class="split-image">
+                    <img src="https://primary.jwwb.nl/pexels/28/28197852.jpeg?enable-io=true&width=800" alt="Eferdinger Hügelland, Bienenweide">
+                </div>
+                <div class="split-text">
+                    <h2>Das Zuhause unserer Bienen</h2>
+                    <p>Unsere Bienen leben im wunderschönen Eferdinger Hügelland in Oberösterreich. Diese Region ist bekannt für ihre vielfältige Flora, die unseren Bienen eine reiche Nektarquelle bietet und so den einzigartigen Geschmack unseres Honigs prägt. Die unberührte Natur und die saubere Luft hier tragen maßgeblich zur Gesundheit unserer Bienenvölker und zur Reinheit unseres Honigs bei. Wir sind stolz darauf, Ihnen einen Honig präsentieren zu können, der die Essenz dieser besonderen Landschaft einfängt.</p>
+                    <a href="produkte.html" class="btn">Unsere Produkte</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sektion 4: Faszination Bienen (Zitat / Text) -->
+        <div class="section section-alt" style="text-align: center;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2>Die Faszination der Bienen</h2>
+                <p style="font-size: 1.1rem;">Die Arbeit mit den Bienen ermöglicht einen tiefen Einblick in die komplexe Welt der Insekten und fördert ein intensives Erleben der Natur. Viele Imker beschreiben das Verständnis der Bienen als "Zuhören", was den Blick auf die Umwelt radikal verändert und schärft. Diese tägliche Motivation treibt uns an, stets das Beste für unsere Bienen und für Sie zu geben.</p>
+            </div>
+        </div>
+
+        <!-- Kontakt-Bereich mit Google Maps Platzhalter -->
+        <div class="section">
+            <h2 style="text-align: center;">Kontaktieren Sie uns</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Bernhard Baumann</h3>
+                    <p>Staudachstraße 1<br>4081 Hartkirchen<br>Österreich</p>
+                    <p>Tel.: <a href="tel:+436607579524">0660 7579524</a><br>
+                    E-Mail: <a href="mailto:baumann.bernhard@gmx.net">baumann.bernhard@gmx.net</a></p>
+                    <h3>Öffnungszeiten</h3>
+                    <p><strong>Montag bis Samstag:</strong><br>08:00 – 18:00 Uhr</p>
+                    <p><strong>Sonntag und Feiertage:</strong><br>auf Anruf</p>
+                </div>
+                <div class="map">
+                    <div id="google-maps-placeholder">
+                        <p>🗺️ Kartenmaterial von Google Maps</p>
+                        <p style="font-size:14px;">Bitte akzeptieren Sie Cookies, um die Karte anzuzeigen.</p>
+                        <button id="load-maps-consent" class="cookie-btn btn-accept" style="margin-top:10px;">Karte laden & Cookies akzeptieren</button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p style="text-align: center;"><strong>Besuchen Sie auch unsere Partnerseite:</strong> <a href="https://baumannhonigseiten.unaux.com" target="_blank" rel="noopener">Baumann's Honig Seiten</a></p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 BIO Honig Baumann | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutzerklärung</a></p>
+            <p>Mit Unterstützung von Günther Danninger</p>
+        </footer>
     </div>
-</div>
 
-<!-- Sektion 3: Zuhause der Bienen (Bild links) -->
-<div class="section">
-    <div class="split-section">
-        <div class="split-image">
-            <img src="https://primary.jwwb.nl/pexels/28/28197852.jpeg?enable-io=true&width=800" alt="Eferdinger Hügelland, Bienenweide">
-        </div>
-        <div class="split-text">
-            <h2>Das Zuhause unserer Bienen</h2>
-            <p>Unsere Bienen leben im wunderschönen Eferdinger Hügelland in Oberösterreich. Diese Region ist bekannt für ihre vielfältige Flora, die unseren Bienen eine reiche Nektarquelle bietet und so den einzigartigen Geschmack unseres Honigs prägt. Die unberührte Natur und die saubere Luft hier tragen maßgeblich zur Gesundheit unserer Bienenvölker und zur Reinheit unseres Honigs bei. Wir sind stolz darauf, Ihnen einen Honig präsentieren zu können, der die Essenz dieser besonderen Landschaft einfängt.</p>
-            <a href="produkte.html" class="btn">Unsere Produkte</a>
-        </div>
-    </div>
-</div>
-
-<!-- Sektion 4: Faszination Bienen (Zitat / Text) -->
-<div class="section section-alt" style="text-align: center;">
-    <div style="max-width: 800px; margin: 0 auto;">
-        <h2>Die Faszination der Bienen</h2>
-        <p style="font-size: 1.1rem;">Die Arbeit mit den Bienen ermöglicht einen tiefen Einblick in die komplexe Welt der Insekten und fördert ein intensives Erleben der Natur. Viele Imker beschreiben das Verständnis der Bienen als "Zuhören", was den Blick auf die Umwelt radikal verändert und schärft. Diese tägliche Motivation treibt uns an, stets das Beste für unsere Bienen und für Sie zu geben.</p>
-    </div>
-</div>
-
-<!-- Kontakt-Bereich -->
-<div class="section">
-    <h2 style="text-align: center;">Kontaktieren Sie uns</h2>
-    <div class="contact-grid">
-        <div class="contact-info">
-            <h3>Bernhard Baumann</h3>
-            <p>Staudachstraße 1<br>4081 Hartkirchen<br>Österreich</p>
-            <p>Tel.: <a href="tel:+436607579524">0660 7579524</a><br>
-            E-Mail: <a href="mailto:baumann.bernhard@gmx.net">baumann.bernhard@gmx.net</a></p>
-            <h3>Öffnungszeiten</h3>
-            <p><strong>Montag bis Samstag:</strong><br>08:00 – 18:00 Uhr</p>
-            <p><strong>Sonntag und Feiertage:</strong><br>auf Anruf</p>
-        </div>
-        <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2665.264693607701!2d13.9984012!3d48.3600839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47745d2e7e7e7e7%3A0x123456789abcdef!2sStaudachstra%C3%9Fe%201%2C%204081%20Hartkirchen!5e0!3m2!1sde!2sat!4v1690000000000!5m2!1sde!2sat" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </div>
-    <hr>
-    <p style="text-align: center;"><strong>Besuchen Sie auch unsere Partnerseite:</strong> <a href="https://baumannhonigseiten.unaux.com" target="_blank" rel="noopener">Baumann's Honig Seiten</a></p>
-</div>
-
-<footer>
-    <p>&copy; 2026 BIO Honig Baumann | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutzerklärung</a></p>
-    <p>Mit Unterstützung von Günther Danninger</p>
-</footer>
-
-<script>
-    // Mobile Menü Toggle
-    const toggleBtn = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav');
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('open');
-        });
-    }
-</script>
+    <script>
+    (function() {
+        function enableGoogleFontsAndPlausible() {
+            var fontLink = document.getElementById('google-fonts-link');
+            if (fontLink) fontLink.disabled = false;
+            var plausibleScript = document.getElementById('plausible-script');
+            if (plausibleScript) {
+                var newScript = document.createElement('script');
+                newScript.src = plausibleScript.src;
+                newScript.setAttribute('data-domain', plausibleScript.getAttribute('data-domain'));
+                newScript.defer = true;
+                document.head.appendChild(newScript);
+            }
+        }
+        
+        function loadGoogleMaps() {
+            var container = document.getElementById('google-maps-placeholder');
+            if (!container) return;
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2665.264693607701!2d13.9984012!3d48.3600839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47745b9c9e6b1f49%3A0x123456789abcdef!2sStaudachstra%C3%9Fe%201%2C%204081%20Hartkirchen%2C%20%C3%96sterreich!5e0!3m2!1sde!2sat!4v1690000000000!5m2!1sde!2sat';
+            iframe.width = '100%';
+            iframe.height = '100%';
+            iframe.style.border = '0';
+            iframe.style.borderRadius = '12px';
+            iframe.style.minHeight = '300px';
+            container.innerHTML = '';
+            container.appendChild(iframe);
+        }
+        
+        var popup = document.getElementById('cookie-popup');
+        var mainSite = document.getElementById('main-site');
+        var acceptBtn = document.getElementById('accept-cookies');
+        var declineBtn = document.getElementById('decline-cookies');
+        var settingsBtn = document.getElementById('cookie-settings-top');
+        var loadMapsBtn = document.getElementById('load-maps-consent');
+        
+        function showMainSite() {
+            if (popup) popup.style.display = 'none';
+            if (mainSite) mainSite.style.display = 'block';
+            if (settingsBtn) settingsBtn.style.display = 'flex';
+        }
+        
+        function handleAccept() {
+            sessionStorage.setItem('cookie_consent', 'accepted');
+            showMainSite();
+            enableGoogleFontsAndPlausible();
+            loadGoogleMaps();
+        }
+        
+        function handleDecline() {
+            sessionStorage.setItem('cookie_consent', 'declined');
+            showMainSite();
+        }
+        
+        function resetAndReload() {
+            sessionStorage.removeItem('cookie_consent');
+            location.reload();
+        }
+        
+        var consent = sessionStorage.getItem('cookie_consent');
+        if (consent === 'accepted') {
+            showMainSite();
+            enableGoogleFontsAndPlausible();
+            loadGoogleMaps();
+        } else if (consent === 'declined') {
+            showMainSite();
+        } else {
+            if (popup) popup.style.display = 'flex';
+            if (mainSite) mainSite.style.display = 'none';
+            if (settingsBtn) settingsBtn.style.display = 'none';
+        }
+        
+        if (acceptBtn) acceptBtn.addEventListener('click', handleAccept);
+        if (declineBtn) declineBtn.addEventListener('click', handleDecline);
+        if (settingsBtn) settingsBtn.addEventListener('click', resetAndReload);
+        if (loadMapsBtn) {
+            loadMapsBtn.addEventListener('click', function() {
+                if (sessionStorage.getItem('cookie_consent') !== 'accepted') {
+                    handleAccept();
+                } else {
+                    loadGoogleMaps();
+                }
+            });
+        }
+    })();
+    </script>
+    
+    <script>
+        // Mobile Menü Toggle
+        const toggleBtn = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('open');
+            });
+        }
+    </script>
 </body>
 </html>
