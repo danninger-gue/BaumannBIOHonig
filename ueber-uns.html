@@ -283,7 +283,7 @@
             }
         }
         
-        /* Cookie Popup CSS (identisch mit index.html) */
+        /* Cookie Popup CSS */
         #cookie-popup {
             position: fixed;
             top: 0;
@@ -424,6 +424,7 @@
     </style>
 </head>
 <body>
+    <!-- Button zum Ändern der Cookie-Einstellungen – wird nach der Entscheidung eingeblendet -->
     <div id="cookie-settings-top" class="cookie-settings-top-btn" style="display: none;">🍪 Cookie-Einstellungen</div>
     
     <div id="cookie-popup">
@@ -453,7 +454,6 @@
         </div>
     </div>
 
-    <!-- Hauptseite – zuerst ausgeblendet, bis Entscheidung getroffen -->
     <div id="main-site">
         <header class="header">
             <div class="header-inner">
@@ -480,7 +480,6 @@
             <p>Tauchen Sie ein in die Welt von BIO Honig Baumann. Erfahren Sie mehr über unsere Leidenschaft für Bienen, die Natur und die Herstellung von hochwertigem Bio-Honig direkt aus dem Eferdinger Hügelland. Hier beginnt unsere süße Reise.</p>
         </div>
 
-        <!-- Sektion 1: Die Leidenschaft des Imkers (Bild links) -->
         <div class="section">
             <div class="split-section">
                 <div class="split-image">
@@ -494,7 +493,6 @@
             </div>
         </div>
 
-        <!-- Sektion 2: Werte (Bild rechts) -->
         <div class="section section-alt">
             <div class="split-section">
                 <div class="split-text">
@@ -508,7 +506,6 @@
             </div>
         </div>
 
-        <!-- Sektion 3: Zuhause der Bienen (Bild links) -->
         <div class="section">
             <div class="split-section">
                 <div class="split-image">
@@ -522,7 +519,6 @@
             </div>
         </div>
 
-        <!-- Sektion 4: Faszination Bienen (Zitat / Text) -->
         <div class="section section-alt" style="text-align: center;">
             <div style="max-width: 800px; margin: 0 auto;">
                 <h2>Die Faszination der Bienen</h2>
@@ -530,7 +526,6 @@
             </div>
         </div>
 
-        <!-- Kontakt-Bereich mit Google Maps Platzhalter -->
         <div class="section">
             <h2 style="text-align: center;">Kontaktieren Sie uns</h2>
             <div class="contact-grid">
@@ -600,7 +595,10 @@
         function showMainSite() {
             if (popup) popup.style.display = 'none';
             if (mainSite) mainSite.style.display = 'block';
-            if (settingsBtn) settingsBtn.style.display = 'flex';
+            if (settingsBtn) {
+                settingsBtn.style.display = 'flex';
+                console.log('Settings button should be visible now');
+            }
         }
         
         function handleAccept() {
