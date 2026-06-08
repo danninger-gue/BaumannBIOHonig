@@ -1,0 +1,11 @@
+# robots.txt für baumannhonig.github.io/BaumannBIOHonig/
+# Erlaubt allen Suchmaschinen das Crawlen der gesamten Website.
+
+User-agent: *
+Allow: /
+
+# Verweis auf die Sitemap (hilft Suchmaschinen, alle Seiten zu finden)
+Sitemap: https://baumannhonig.github.io/BaumannBIOHonig/sitemap.xml
+
+# Optional: Crawl-Verzögerung (falls gewünscht – hier deaktiviert)
+# Crawl-delay: 5
