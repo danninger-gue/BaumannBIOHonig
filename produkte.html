@@ -17,7 +17,7 @@
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>
     
     <style>
-        /* ===== GRUNDLAGEN (wie auf den anderen Seiten) ===== */
+        /* ===== GRUNDLAGEN (einheitliches grünes Design) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -460,7 +460,7 @@
 
     <div id="main-site">
         <header class="site-header">
-            <div class="container header-inner" style="max-width:1200px; margin:0 auto; padding:0 20px;">
+            <div class="header-inner">
                 <div class="logo-area">
                     <img class="logo-img" src="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&enable=upscale&height=70" alt="BIO Honig Baumann Logo">
                     <a href="index.html" class="site-title">BIO Honig Baumann</a>
@@ -554,7 +554,7 @@
                 </div>
             </div>
 
-            <!-- Kontakt & Karte (Google Maps Platzhalter) -->
+            <!-- Kontakt & Karte -->
             <div class="section section-alt">
                 <div class="text-center">
                     <h2 class="section-title">📞 Kontakt & Abholung</h2>
@@ -590,6 +590,8 @@
 
     <script>
     (function() {
+        "use strict";
+        
         function enableGoogleFontsAndPlausible() {
             var fontLink = document.getElementById('google-fonts-link');
             if (fontLink) fontLink.disabled = false;
@@ -627,25 +629,16 @@
         function showMainSite() {
             if (popup) popup.style.display = 'none';
             if (mainSite) mainSite.style.display = 'block';
+            if (settingsBtn) settingsBtn.style.display = 'flex';
         }
         
-        function handleAccept() {
-            sessionStorage.setItem('cookie_consent', 'accepted');
-            showMainSite();
-            enableGoogleFontsAndPlausible();
-            loadGoogleMaps();
+        function hideMainSite() {
+            if (popup) popup.style.display = 'flex';
+            if (mainSite) mainSite.style.display = 'none';
+            if (settingsBtn) settingsBtn.style.display = 'none';
         }
         
-        function handleDecline() {
-            sessionStorage.setItem('cookie_consent', 'declined');
-            showMainSite();
-        }
-        
-        function resetAndReload() {
-            sessionStorage.removeItem('cookie_consent');
-            location.reload();
-        }
-        
+        // Prüfe vorhandene Einwilligung im sessionStorage
         var consent = sessionStorage.getItem('cookie_consent');
         if (consent === 'accepted') {
             showMainSite();
@@ -654,27 +647,49 @@
         } else if (consent === 'declined') {
             showMainSite();
         } else {
-            if (popup) popup.style.display = 'flex';
-            if (mainSite) mainSite.style.display = 'none';
+            hideMainSite();   // Popup anzeigen, Hauptseite verstecken
         }
         
-        if (acceptBtn) acceptBtn.addEventListener('click', handleAccept);
-        if (declineBtn) declineBtn.addEventListener('click', handleDecline);
-        if (settingsBtn) settingsBtn.addEventListener('click', resetAndReload);
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                sessionStorage.setItem('cookie_consent', 'accepted');
+                showMainSite();
+                enableGoogleFontsAndPlausible();
+                loadGoogleMaps();
+            });
+        }
+        if (declineBtn) {
+            declineBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                sessionStorage.setItem('cookie_consent', 'declined');
+                showMainSite();
+            });
+        }
+        if (settingsBtn) {
+            settingsBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                sessionStorage.removeItem('cookie_consent');
+                location.reload();
+            });
+        }
         if (loadMapsBtn) {
             loadMapsBtn.addEventListener('click', function() {
                 if (sessionStorage.getItem('cookie_consent') !== 'accepted') {
-                    handleAccept();
+                    sessionStorage.setItem('cookie_consent', 'accepted');
+                    showMainSite();
+                    enableGoogleFontsAndPlausible();
+                    loadGoogleMaps();
                 } else {
                     loadGoogleMaps();
                 }
             });
         }
         
-        // Mobile Menü Toggle
+        // Mobiles Menü Toggle
         var toggleBtn = document.querySelector('.menu-toggle');
         var navMenu = document.querySelector('.nav-links');
-        if (toggleBtn) {
+        if (toggleBtn && navMenu) {
             toggleBtn.addEventListener('click', function() {
                 navMenu.classList.toggle('show');
             });
