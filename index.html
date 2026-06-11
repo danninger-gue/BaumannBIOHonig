@@ -16,12 +16,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>Bio Imkerei Baumann Hartkirchen – Hochwertiger Bio Honig</title>
     
-    <!-- Google Fonts (zuerst deaktiviert) -->
+    <!-- Google Fonts (initial deaktiviert) -->
     <link id="google-fonts-link" rel="stylesheet" disabled href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;400italic;700italic&family=Merriweather:wght@400;700;400italic;700italic&display=swap">
     
-    <!-- Plausible (zuerst deaktiviert) -->
-    <script id="plausible-script" data-domain="baumannhonig.github.io" src="https://plausible.io/js/script.manual.js" defer></script>
-    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>
+    <!-- KEIN statisches Plausible-Script mehr – wird bei Einwilligung dynamisch geladen -->
     
     <style>
         /* ===== GRUNDLAGEN (wie auf der Unterseite) ===== */
@@ -491,10 +489,11 @@
                 <p>Diese Website verwendet <strong>keine dauerhaften Cookies</strong>. Ihre Einwilligung wird nur für die Dauer Ihrer aktuellen Sitzung gespeichert.</p>
                 <p>Mit Ihrer Einwilligung werden folgende optionale Dienste aktiviert:</p>
                 <ul>
-                    <li><strong>Google Fonts</strong> – für optimierte Schriftdarstellung</li>
-                    <li><strong>Plausible Analytics</strong> – datensparsame, anonyme Besucheranalyse (keine personenbezogenen Daten)</li>
-                    <li><strong>Google Maps</strong> – zur Darstellung unseres Standorts</li>
+                    <li><strong>Google Fonts</strong> – für optimierte Schriftdarstellung (überträgt Ihre IP-Adresse an Google LLC, USA)</li>
+                    <li><strong>Plausible Analytics</strong> – datensparsame, anonyme Besucheranalyse (keine personenbezogenen Daten, kein Tracking über Seitenbesuche hinaus)</li>
+                    <li><strong>Google Maps</strong> – zur Darstellung unseres Standorts (überträgt Ihre IP-Adresse und Standortdaten an Google LLC, USA)</li>
                 </ul>
+                <p><strong>Hinweis zu Drittlandübermittlungen:</strong> Bei Aktivierung von Google Fonts oder Google Maps werden Daten in die USA übermittelt. Es besteht kein Angemessenheitsbeschluss der EU-Kommission; es kann nicht ausgeschlossen werden, dass US-Behörden auf diese Daten zugreifen.</p>
                 <p>Sie können Ihre Entscheidung jederzeit über den Button oben rechts ändern.</p>
                 <div class="cookie-buttons">
                     <button id="accept-cookies" class="cookie-btn btn-accept">✅ Alle akzeptieren</button>
@@ -512,7 +511,7 @@
         <header class="header">
             <div class="header-inner">
                 <div class="logo-area">
-                    <img class="logo" src="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&height=70" alt=Bio Honig Baumann Hartkirchen - fälschlicherweise oft gesucht als Honig Baumann Harthirchen">
+                    <img class="logo" src="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&height=70" alt="Bio Honig Baumann Hartkirchen - fälschlicherweise oft gesucht als Honig Baumann Harthirchen">
                     <a href="index.html" class="site-title">BIO Honig Baumann</a>
                 </div>
                 <button class="menu-toggle" aria-label="Menü">☰</button>
@@ -612,7 +611,7 @@
                 </div>
             </div>
             <hr>
-            <p style="text-align: center;"><strong>Besuchen Sie auch <a href="https://baumannhonig.github.io/BaumannHonigSeiten/index.html">Baumanns Honig Seiten Hartkirchen</a></p>
+            <p style="text-align: center;"><strong>Besuchen Sie auch <a href="https://baumannhonig.github.io/BaumannHonigSeiten/index.html">Baumanns Honig Seiten Hartkirchen</a></strong></p>
         </div>
 
         <footer>
@@ -623,23 +622,40 @@
 
     <script>
     (function() {
-        // Einwilligung über sessionStorage (keine Cookies)
-        function enableGoogleFontsAndPlausible() {
+        // Einwilligung über sessionStorage (keine dauerhaften Cookies)
+        var consent = sessionStorage.getItem('cookie_consent');
+        var popup = document.getElementById('cookie-popup');
+        var mainSite = document.getElementById('main-site');
+        var acceptBtn = document.getElementById('accept-cookies');
+        var declineBtn = document.getElementById('decline-cookies');
+        var settingsBtn = document.getElementById('cookie-settings-top');
+        var loadMapsBtn = document.getElementById('load-maps-consent');
+
+        // Funktion zum Aktivieren von Google Fonts + Plausible (nur bei voller Zustimmung)
+        function enableOptionalServices() {
+            // Google Fonts aktivieren
             var fontLink = document.getElementById('google-fonts-link');
             if (fontLink) fontLink.disabled = false;
-            var plausibleScript = document.getElementById('plausible-script');
-            if (plausibleScript) {
-                var newScript = document.createElement('script');
-                newScript.src = plausibleScript.src;
-                newScript.setAttribute('data-domain', plausibleScript.getAttribute('data-domain'));
-                newScript.defer = true;
-                document.head.appendChild(newScript);
+            
+            // Plausible Analytics dynamisch nachladen (nur wenn noch nicht geladen)
+            if (!window.plausible) {
+                var script = document.createElement('script');
+                script.src = 'https://plausible.io/js/script.manual.js';
+                script.setAttribute('data-domain', 'baumannhonig.github.io');
+                script.defer = true;
+                document.head.appendChild(script);
+                // plausible manual.js erwartet das window.plausible Objekt – stellen wir sicher
+                window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments); };
             }
         }
         
-        function loadGoogleMaps() {
+        // Funktion zum Laden von Google Maps (ohne andere Dienste)
+        function loadGoogleMapsOnly() {
             var container = document.getElementById('google-maps-placeholder');
             if (!container) return;
+            // Verhindere mehrfaches Laden
+            if (container.querySelector('iframe')) return;
+            
             var iframe = document.createElement('iframe');
             iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2665.264693607701!2d13.9984012!3d48.3600839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47745b9c9e6b1f49%3A0x123456789abcdef!2sStaudachstra%C3%9Fe%201%2C%204081%20Hartkirchen%2C%20%C3%96sterreich!5e0!3m2!1sde!2sat!4v1690000000000!5m2!1sde!2sat';
             iframe.width = '100%';
@@ -651,56 +667,66 @@
             container.appendChild(iframe);
         }
         
-        var popup = document.getElementById('cookie-popup');
-        var mainSite = document.getElementById('main-site');
-        var acceptBtn = document.getElementById('accept-cookies');
-        var declineBtn = document.getElementById('decline-cookies');
-        var settingsBtn = document.getElementById('cookie-settings-top');
-        var loadMapsBtn = document.getElementById('load-maps-consent');
-        
+        // Hauptseite anzeigen (Banner ausblenden)
         function showMainSite() {
             if (popup) popup.style.display = 'none';
             if (mainSite) mainSite.style.display = 'block';
         }
         
+        // Vollständige Zustimmung (alle optionalen Dienste)
         function handleAccept() {
             sessionStorage.setItem('cookie_consent', 'accepted');
             showMainSite();
-            enableGoogleFontsAndPlausible();
-            loadGoogleMaps();
+            enableOptionalServices();
+            loadGoogleMapsOnly(); // Maps gleich mitladen
         }
         
+        // Nur notwendige Dienste (gar keine)
         function handleDecline() {
             sessionStorage.setItem('cookie_consent', 'declined');
             showMainSite();
+            // Keine optionalen Dienste aktivieren
         }
         
-        function resetAndReload() {
+        // Einwilligung zurücksetzen und Seite neu laden (damit alle Scripte neu entscheiden)
+        function resetConsentAndReload() {
             sessionStorage.removeItem('cookie_consent');
             location.reload();
         }
         
-        var consent = sessionStorage.getItem('cookie_consent');
+        // Prüfe vorhandene Einwilligung
         if (consent === 'accepted') {
             showMainSite();
-            enableGoogleFontsAndPlausible();
-            loadGoogleMaps();
+            enableOptionalServices();
+            loadGoogleMapsOnly();
         } else if (consent === 'declined') {
             showMainSite();
+            // Nichts optionales laden
         } else {
             if (popup) popup.style.display = 'flex';
             if (mainSite) mainSite.style.display = 'none';
         }
         
+        // Event-Listener
         if (acceptBtn) acceptBtn.addEventListener('click', handleAccept);
         if (declineBtn) declineBtn.addEventListener('click', handleDecline);
-        if (settingsBtn) settingsBtn.addEventListener('click', resetAndReload);
+        if (settingsBtn) settingsBtn.addEventListener('click', resetConsentAndReload);
+        
+        // Karte laden – nur Maps, keine anderen Dienste
         if (loadMapsBtn) {
             loadMapsBtn.addEventListener('click', function() {
+                // Wenn noch keine vollständige Einwilligung vorliegt, laden wir trotzdem nur Maps
+                // Das ist eine separate, aktive Einwilligung des Nutzers für diesen Dienst.
+                // Wir setzen keinen globalen Consent, damit nicht automatisch auch andere Dienste aktiviert werden.
                 if (sessionStorage.getItem('cookie_consent') !== 'accepted') {
-                    handleAccept();
+                    // Wir laden nur Maps, ohne den Gesamt-Consent zu setzen.
+                    // (Der Nutzer hat durch den Klick explizit nur für Maps eingewilligt)
+                    loadGoogleMapsOnly();
+                    // Optional: Man könnte hier eine separate Markierung setzen, um beim nächsten Seitenbesuch Maps automatisch zu laden.
+                    // Das ist aber nicht gefordert und würde die DSGVO-Kontrolle erschweren. Daher lassen wir es bei der einmaligen Aktion.
                 } else {
-                    loadGoogleMaps();
+                    // Wenn bereits vollständig eingewilligt wurde, laden wir Maps (evtl. schon geladen, aber sicherheitshalber)
+                    loadGoogleMapsOnly();
                 }
             });
         }
