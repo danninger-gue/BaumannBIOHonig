@@ -417,6 +417,52 @@
             text-decoration: underline;
         }
         
+        /* ===== MOBILE OPTIMIERUNG FÜR COOKIE-POPUP (Smartphones) ===== */
+        @media (max-width: 480px) {
+            .cookie-container {
+                width: 92%;
+                max-width: 95%;
+                border-radius: 12px;
+            }
+            .cookie-header {
+                padding: 15px 12px;
+            }
+            .cookie-header .cookie-icon {
+                font-size: 36px;
+                margin-bottom: 5px;
+            }
+            .cookie-header h2 {
+                font-size: 18px;
+            }
+            .cookie-body {
+                padding: 16px 14px;
+            }
+            .cookie-body p {
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+            .cookie-body ul {
+                margin: 8px 0;
+                padding-left: 16px;
+                font-size: 13px;
+            }
+            .cookie-body li {
+                margin-bottom: 4px;
+            }
+            .cookie-buttons {
+                gap: 8px;
+                margin-top: 15px;
+            }
+            .cookie-btn {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+            .cookie-footer {
+                padding: 10px;
+                font-size: 10px;
+            }
+        }
+        
         #main-site {
             display: none;
         }
