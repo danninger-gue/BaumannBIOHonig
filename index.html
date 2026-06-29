@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="Bio Honig Baumann aus Hartkirchen (Eferding). Entdecken Sie unseren Bio Blütenhonig, Waldhonig, Propolis und Blütenpollen direkt aus der Region.">
-    <meta name="keywords" content="Baumann honig Hartkirchen, Bio honig Baumann, Imkerei Hartkirchen, Honig kaufen Eferding, Baumann Hartlirchen">
+    <meta name="keywords" content="Baumann honig Hartkirchen, Bio honig Baumann, Imkerei Hartkirchen, Honig kaufen Eferding, Baumann Hartkirchen">
     <meta name="author" content="BIO Honig Baumann">
     <link rel="canonical" href="https://baumannhonig.github.io/BaumannBIOHonig/">
     <meta property="og:title" content="BIO Honig Baumann">
@@ -524,7 +524,7 @@
     <!-- Container für beide Buttons (Cookie + Partnerseite) -->
     <div class="top-buttons-container">
         <button id="cookie-settings-top" class="cookie-settings-top-btn">🍪 Cookie-Einstellungen</button>
-        <a href="https://baumannhonig.github.io/BaumannHonigSeiten/index.html" target="_blank" rel="noopener" class="cookie-settings-top-btn">🌐 Partnerseite</a>
+        <a href="https://baumannhonig.github.io/BaumannHonigSeiten/index.html" target="_blank" rel="noopener noreferrer" class="cookie-settings-top-btn">🌐 Partnerseite</a>
     </div>
     
     <div id="cookie-popup">
@@ -562,7 +562,7 @@
                     <img class="logo" src="https://primary.jwwb.nl/public/x/h/o/temp-kffssgqxrsoporxwpdhl/logo-high.png?enable-io=true&height=70" alt="Bio Honig Baumann Hartkirchen - fälschlicherweise oft gesucht als Honig Baumann Harthirchen">
                     <a href="index.html" class="site-title">BIO Honig Baumann</a>
                 </div>
-                <button class="menu-toggle" aria-label="Menü">☰</button>
+                <button class="menu-toggle" aria-label="Menü" aria-expanded="false">☰</button>
                 <nav class="nav">
                     <ul>
                         <li><a href="index.html" class="active">Home</a></li>
@@ -779,12 +779,15 @@
             });
         }
         
-        // Mobiles Menü Toggle
+        // Mobiles Menü Toggle (Accessibility: aria-expanded pflegen)
         const toggleBtn = document.querySelector('.menu-toggle');
         const navMenu = document.querySelector('.nav');
-        if (toggleBtn) {
+        if (toggleBtn && navMenu) {
+            // initialen Zustand spiegeln
+            toggleBtn.setAttribute('aria-expanded', navMenu.classList.contains('open') ? 'true' : 'false');
             toggleBtn.addEventListener('click', function() {
-                navMenu.classList.toggle('open');
+                const isOpen = navMenu.classList.toggle('open');
+                toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             });
         }
     })();
