@@ -317,7 +317,7 @@
             color: #eef5ea;
         }
         
-        /* ===== COOKIE POPUP ===== */
+        /* ===== COOKIE POPUP – dynamische Größe ===== */
         #cookie-popup {
             position: fixed;
             top: 0;
@@ -333,8 +333,8 @@
         }
         .cookie-container {
             background: white;
-            max-width: 500px;
-            width: 90%;
+            /* Dynamische Breite: mind. 300px, 80% der Viewport-Breite, max. 700px */
+            width: clamp(300px, 80%, 700px);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
@@ -420,6 +420,7 @@
         /* ===== MOBILE OPTIMIERUNG FÜR COOKIE-POPUP (Smartphones) ===== */
         @media (max-width: 480px) {
             .cookie-container {
+                /* Auf kleinen Geräten fast die ganze Breite nutzen, aber mit etwas Rand */
                 width: 92%;
                 max-width: 95%;
                 border-radius: 12px;
